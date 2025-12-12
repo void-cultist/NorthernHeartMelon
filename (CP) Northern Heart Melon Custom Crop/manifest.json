@@ -1,0 +1,13 @@
+{
+  "Name": "Northern Heart Melon - a custom crop",
+  "Author": "voidcultist",
+  "Version": "0.1.0",
+  "Description": "A special kind of fruit that is a delight for everyone you wish to get closer with.",
+  "UniqueID": "void.NorthernHeartMelon",
+  "UpdateKeys": ["???"],
+  "ContentPackFor": {
+    "UniqueID": "Pathoschild.ContentPatcher"
+  },
+
+  
+}
