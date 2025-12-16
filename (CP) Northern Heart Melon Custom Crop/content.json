@@ -27,8 +27,8 @@
                 // SEED ITEM
                 "{{ModId}}_NHMSeeds": {
                     "Name": "{{ModId}}_NHMSeeds",
-                    "Displayname": "Northern Heart Melon seeds",
-                    "Description": "Plant these in Winter to grow a Northern Heart Melon. Needs 20 days to grow.",
+                    "Displayname": "{{i18n:NHMSeedsName}}",
+                    "Description": "{{i18n:NHMSeedsDescription}}",
                     "Type": "Seeds",
                     "Category": -74, //crop seeds must be category -74 to plant crops
                     "Price": 250,
@@ -38,8 +38,8 @@
                 // PRODUCED ITEM
                 "{{ModId}}_NHMelon": {
                     "Name": "{{ModId}}_NHMelon", //internal name
-                    "Displayname": "Northern Heart Melon",
-                    "Description": "A very rare fruit from a deity's garden that is said to increase a person's fondness towards another.",
+                    "DisplayName": "{{i18n:NHMelon.DisplayName}}",
+                    "Description": "{{i18n:NHMelon.Description}}",
                     "Type": "Basic",
                     "Category": -79,
                     "Price": 2500,   // Money earned when player sells it
@@ -134,10 +134,14 @@
             
 		},
 //recipe for tassel at volcano shop
-{ 
+{ //with NPC Pei Ming installed
         "LogName": "Make tassel recipe available for purchase",
 		"Action": "EditData",
-        "When": { "HasMod: |contains=void.peiming": true },
+        "When": { 
+            "HasMod: |contains=void.peiming": true,
+            "Hearts:void.peiming_Peiming": "8, 9, 10, 11, 12, 13, 14",
+            "FarmhouseUpgrade": "1,2,3"
+     },
 		"Target":  "Data/Shops",
             "TargetField": [
                 "VolcanoShop",
@@ -161,6 +165,37 @@
                     } ]
 
 },
+{ //without NPC Pei Ming installed
+    "LogName": "Make tassel recipe available for purchase(PM not installed)",
+		"Action": "EditData",
+        "When": { 
+            "HasMod: |contains=void.peiming": false,
+            "SkillLevel:Combat": 10,      
+     },
+		"Target":  "Data/Shops",
+            "TargetField": [
+                "VolcanoShop",
+                "Items"
+            ],
+            "Entries": {
+                    "{{ModId}}_TasselRecipe": {
+                    
+                    "Id": "{{ModId}}_TasselRecipe",
+                    "ItemId": "(O){{ModID}}_Tassel",
+                    "IsRecipe": true,
+                    "ObjectInternalName": "{{ModID}}_Tassel",
+                    "Price": 500000,
+                    
+                    }
+                },
+                "MoveEntries": [
+                    {
+                    "ID": "{{ModId}}_TasselRecipe",
+                    "ToPosition": "Top"
+                    } ]
+
+},
+
 
 //recipe for love tea and glazed heart melon at night market when PM is not installed
 { 
@@ -213,52 +248,23 @@
                 
 
 },
- //add seeds + recipe to PM's desert shop with NPC installed
-		{
-            "LogName": "Make seeds available for purchase at desert festival",
-		"Action": "EditData",
-		"When": { "HasMod: |contains=void.peiming": true },
-		"Target":  "Data/Shops",
-            "TargetField": [
-                "DesertFestival_void.peiming_Peiming",
-                "Items"
-            ],
-            "Entries": {
-                "{{ModId}}_NHMSeeds": {
-                    "Id": "{{ModId}}_NHMSeeds",
-                    "ItemId": "{{ModId}}_NHMSeeds",
-                    "TradeItemId": "CalicoEgg",
-        		    "TradeItemAmount": 50,
-					"AvailableStock": 2,
-                },
-                "{{ModID}}_GlazedHeartMelonRecipe": {
-                 "Id": "{{ModId}}_GlazedHeartMelonRecipe",
-                    "ItemId": "(O){{ModID}}_GlazedHeartMelon",
-                    "IsRecipe": true,
-                    "ObjectInternalName": "{{ModID}}_GlazedHeartMelon",
-                    "TradeItemId": "CalicoEgg",
-        		    "TradeItemAmount": 60,
-                },
-
-            },
-            
-		},
-
-    
+ 
 ///////////////////cooking recipes
 //add in cooked items and buffs
 
 { 
-    "LogName": "Add Custom Buff",
+    "LogName": "Add Custom Buffs",
     "Action": "EditData",
     "Target": "Data/Buffs",
     "Entries": {
-        "{{ModID}}_NHMBuff": {
-            "DisplayName": "Heart Melon Buff",
+        "{{ModID}}_NHMBuff": 
+    {
+            "DisplayName": "{{i18n:HeartMelonBuff}}",
             "Duration": -2, // This sets it to last for the entire day
             "IconTexture": "Tilesheets\\BuffsIcons",
             "IconSpriteIndex": 16, // The index within the icon texture set above. Each index is 16x16, and is read left to right, top to bottom.
-            "Effects": {
+            "Effects": 
+        {
               "FarmingLevel": 1,
                 "FishingLevel": 4,
                 "ForagingLevel": 2,
@@ -268,7 +274,20 @@
                 "Defense": 3,
                 "CritChanceMultiplier": 3,
         }
-    }
+    },
+        "{{ModID}}_TasselBuff": {
+            "DisplayName": "{{i18n:MagentaTasselBuff}}",
+            "Duration": -1,
+            "IconTexture": "Tilesheets\\BuffsIcons",
+            "Effects": {
+                "LuckLevel": 3,
+                "CombatLevel": 4,
+                "Defense": 4,
+                "CriticalChanceMultiplier": 1.5,
+                "CriticalPowerMultiplier": 1.2,
+            },
+            "CustomFields": "spacechase0.SpaceCore/HealthRegeneration",
+        }
 }
 },
 
@@ -279,8 +298,8 @@
             "Entries": {
                 "{{ModId}}_GlazedHeartMelon": {
                     "Name": "{{ModId}}_GlazedHeartMelon",
-                    "DisplayName": "Glazed Heart Melon",
-                    "Description": "A sweet treat. Gifting it to someone shows that you really like them!",
+                    "DisplayName": "{{i18n:GlazedHeartMelon.DisplayName}}",
+                    "Description": "{{i18n:GlazedHeartMelon.Description}}",
                     "Edibility": "120",
                     "Type": "Cooking",
                     "Category": -7,
@@ -309,13 +328,13 @@
             "Entries": {
                 "{{ModId}}_LoveTea": {
                     "Name": "{{ModId}}_LoveTea",
-                    "DisplayName": "Love Tea",
-                    "Description": "A mysterious beverage that is said to make anyone like you instantly.",
+                    "DisplayName": "{{i18n:LoveTea.DisplayName}}",
+                    "Description": "{{i18n:LoveTea.Description}}",
                     "Edibility": "300",
                     "IsDrink": true,
                     "Type": "Cooking",
                     "Category": -7,
-                    "Price": "100000",
+                    "Price": "10000",
                     "Texture": "{{ModId}}\\recipes",
                     "SpriteIndex": 2,
                     "ContextTags": [
@@ -339,23 +358,48 @@
             "Entries": {
                 "{{ModId}}_Tassel": {
                     "Name": "{{ModId}}_Tassel",
-                    "DisplayName": "Magenta Tassel",
-                    "Description": "A token of companionship.",
-                    "Type": "Crafting",
-                    "Category": -29,
-                    "Price": "250000",
+                    "DisplayName": "{{i18n:Tassel.DisplayName}}",
+                    "Description": "{{i18n:Tassel.Description}}",
+                    "Type": "Ring",
+                    "Category": "-96",
+                    "Price": "2500",
                     "Texture": "{{ModId}}\\recipes",
                     "SpriteIndex": 1,
                     "ContextTags": [
-                        "color_red", "propose_roommate_void.peiming_peiming", "not_placeable"
-                        
-                       
-                    ],
+                        "color_red", "not_placeable"
+                         ],
                     "ExcludeFromShippingCollection": true,
                 
                 }
             }
         },
+//Spacecore shenanigans for the Magenta Tassel (space core saved me i love space core 4ever)
+{
+    "LogName": "Magenta Tassel- Vanilla Asset Extentions SpaceCore patch",
+    "Action": "EditData",
+    "Target": "spacechase0.SpaceCore/ObjectExtensionData",
+    "Entries": {
+        "{{ModID}}_Tassel": {
+            "GiftableToNpcAllowList": {"void.peiming_Peiming": true},
+            "GiftedToNotOnAllowListMessage": "{{i18n:GiftedToNotOnAllowListMessage}}",
+            "UseForTriggerAction": true,
+        }
+    }
+},
+{
+    "LogName": "Magenta Tassel - Adding Buffs via SpaceCore",
+    "Action": "EditData",
+    "Target": "spacechase0.SpaceCore/WearableData",
+    "Entries":{
+        "(O){{ModID}}_Tassel": {
+            "BuffIdToApply": "{{ModID}}_TasselBuff",
+
+        }
+
+
+    }
+},
+
 
 
 //vanilla
@@ -393,7 +437,7 @@
 				"{{ModID}}_Tassel": "(O){{ModID}}_NHMelon 3 (O)64 1 (O)428 1 (O)848 4/10 10/{{ModID}}_Tassel 1/false/null/Magenta Tassel/"
       }
     },
-/* //trigger actions (BETAS)
+/* //trigger actions (BETAS) my plan doesn't work. it was supposed to act similarly to stardrop tea but that's HARDCODED. this relic will remain in here until i can access the stardrop tea's effects
 {   "LogName": "Love Tea adds a lot of friendship points! (BETAS)",
 	"Action": "EditData",
 	"Target": "Data/TriggerActions",
@@ -415,12 +459,12 @@
         { "Operation": "Append",
           "Target": ["Entries", "Universal_Love"],
           "Value": "{{ModId}}_GlazedHeartMelon, {{ModID}}_LoveTea",
-          "Delimiter": " "
+          "Delimiter": ","
         },
         {   "Operation": "Append",
           "Target": ["Entries", "Universal_Like"],
           "Value": "{{ModId}}_NHMelon",
-          "Delimiter": " "},
+          "Delimiter": ","},
 
         ],
         //only need to append because it's just one string
