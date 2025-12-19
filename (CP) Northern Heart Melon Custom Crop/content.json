@@ -18,6 +18,21 @@
         },
   
 
+
+/* ············································· */
+/* : ____  _____ _____ ____  ____     ___      : */
+/* :/ ___|| ____| ____|  _ \/ ___|   ( _ )     : */
+/* :\___ \|  _| |  _| | | | \___ \   / _ \/\   : */
+/* : ___) | |___| |___| |_| |___) | | (_>  <   : */
+/* :|____/|_____|_____|____/|____/  _\___/\/__ : */
+/* :|  _ \|  _ \ / _ \|  _ \| | | |/ ___| ____|: */
+/* :| |_) | |_) | | | | | | | | | | |   |  _|  : */
+/* :|  __/|  _ <| |_| | |_| | |_| | |___| |___ : */
+/* :|_|   |_| \_\\___/|____/ \___/ \____|_____|: */
+/* ············································· */
+
+
+
 //add in seeds and produce
         {	
             "LogName": "Add in the seeds + produce",
@@ -103,9 +118,7 @@
 					"TradeItemAmount": "3",
 					"AvailableStock": "2",
                 }
-            },
-           
-                
+            },      
             
 		},
 
@@ -128,75 +141,9 @@
 					"TradeItemAmount": "3",
 					"AvailableStock": "2",
                 }
-            },
-           
-                
+            },     
             
 		},
-//recipe for tassel at volcano shop
-{ //with NPC Pei Ming installed
-        "LogName": "Make tassel recipe available for purchase",
-		"Action": "EditData",
-        "When": { 
-            "HasMod: |contains=void.peiming": true,
-            "Hearts:void.peiming_Peiming": "8, 9, 10, 11, 12, 13, 14",
-            "FarmhouseUpgrade": "1,2,3"
-     },
-		"Target":  "Data/Shops",
-            "TargetField": [
-                "VolcanoShop",
-                "Items"
-            ],
-            "Entries": {
-                    "{{ModId}}_TasselRecipe": {
-                    
-                    "Id": "{{ModId}}_TasselRecipe",
-                    "ItemId": "(O){{ModID}}_Tassel",
-                    "IsRecipe": true,
-                    "ObjectInternalName": "{{ModID}}_Tassel",
-                    "Price": 500000,
-                    
-                    }
-                },
-                "MoveEntries": [
-                    {
-                    "ID": "{{ModId}}_TasselRecipe",
-                    "ToPosition": "Top"
-                    } ]
-
-},
-{ //without NPC Pei Ming installed
-    "LogName": "Make tassel recipe available for purchase(PM not installed)",
-		"Action": "EditData",
-        "When": { 
-            "HasMod: |contains=void.peiming": false,
-            "SkillLevel:Combat": 10,      
-     },
-		"Target":  "Data/Shops",
-            "TargetField": [
-                "VolcanoShop",
-                "Items"
-            ],
-            "Entries": {
-                    "{{ModId}}_TasselRecipe": {
-                    
-                    "Id": "{{ModId}}_TasselRecipe",
-                    "ItemId": "(O){{ModID}}_Tassel",
-                    "IsRecipe": true,
-                    "ObjectInternalName": "{{ModID}}_Tassel",
-                    "Price": 500000,
-                    
-                    }
-                },
-                "MoveEntries": [
-                    {
-                    "ID": "{{ModId}}_TasselRecipe",
-                    "ToPosition": "Top"
-                    } ]
-
-},
-
-
 //recipe for love tea and glazed heart melon at night market when PM is not installed
 { 
         "LogName": "Make love tea recipe available for purchase at night market without NPC installed",
@@ -275,22 +222,9 @@
                 "CritChanceMultiplier": 3,
         }
     },
-        "{{ModID}}_TasselBuff": {
-            "DisplayName": "{{i18n:MagentaTasselBuff}}",
-            "Duration": -1,
-            "IconTexture": "Tilesheets\\BuffsIcons",
-            "Effects": {
-                "LuckLevel": 3,
-                "CombatLevel": 4,
-                "Defense": 4,
-                "CriticalChanceMultiplier": 1.5,
-                "CriticalPowerMultiplier": 1.2,
-            },
-            "CustomFields": "spacechase0.SpaceCore/HealthRegeneration",
-        }
-}
+       
 },
-
+},
         {
             "LogName": "Add Glazed Heart Melon dish",
             "Action": "EditData",
@@ -351,63 +285,8 @@
                 }
             }
         },
-                {
-            "LogName": "Add Magenta Tassel",
-            "Action": "EditData",
-            "Target": "Data/Objects",
-            "Entries": {
-                "{{ModId}}_Tassel": {
-                    "Name": "{{ModId}}_Tassel",
-                    "DisplayName": "{{i18n:Tassel.DisplayName}}",
-                    "Description": "{{i18n:Tassel.Description}}",
-                    "Type": "Ring",
-                    "Category": "-96",
-                    "Price": "2500",
-                    "Texture": "{{ModId}}\\recipes",
-                    "SpriteIndex": 1,
-                    "ContextTags": [
-                        "color_red", "not_placeable"
-                         ],
-                    "ExcludeFromShippingCollection": true,
-                
-                }
-            }
-        },
-//Spacecore shenanigans for the Magenta Tassel (space core saved me i love space core 4ever)
-{
-    "LogName": "Magenta Tassel- Vanilla Asset Extentions SpaceCore patch",
-    "Action": "EditData",
-    "Target": "spacechase0.SpaceCore/ObjectExtensionData",
-    "Entries": {
-        "{{ModID}}_Tassel": {
-            "GiftableToNpcAllowList": {"void.peiming_Peiming": true},
-            "GiftedToNotOnAllowListMessage": "{{i18n:GiftedToNotOnAllowListMessage}}",
-            "UseForTriggerAction": true,
-        }
-    }
-},
-{
-    "LogName": "Magenta Tassel - Adding Buffs via SpaceCore",
-    "Action": "EditData",
-    "Target": "spacechase0.SpaceCore/WearableData",
-    "Entries":{
-        "(O){{ModID}}_Tassel": {
-            "BuffIdToApply": "{{ModID}}_TasselBuff",
 
-        }
-
-
-    }
-},
-
-
-
-//vanilla
-//format COOKING: "<unique ID>": "<0: ingredients by ID>/<1:unused but needs to be filled or else recipe is invalid>/<2:yield>/<3:unlock conditions>/<4:display name>"
-//format CRAFTING: "<unique ID>": "<0: ingredients by ID>/<1:unused but needs to be filled or else recipe is invalid>/<2:yield>/<3: big craftable true or false>/<4:unlock conditions>/<5:display name>"
-//The ingredients are a space-separated list of numbers in pairs. The first number of each pair is an object index, negative numbers refer to categories; second number is quantity
-//The yield is also a space-separated list of numbers in pairs. The first number of each pair is an object or big craftable ID.  second number is quantity
-    {
+ { //////////COOKING RECIPES
 
     "LogName": "Create Glazed Heart Melon recipe",
       "Action": "EditData",
@@ -425,18 +304,282 @@
 		"{{ModID}}_LoveTea": "(O){{ModID}}_NHMelon 1 (O)417 1 (O)614 1 (O)454 3/10 10/{{ModID}}_LoveTea 1/null/Love Tea/",
       }
     },
+
+///cooking recipes spacecore override... I will eventually add this in
+/* { "LogName": "Cooking Recipe spacecore overrides",
+"Action": "EditData",
+"Target": "spacechase0.SpaceCore/CookingRecipeOverrides",
+"Entries": {
+    "{{ModID}}_GlazedHeartMelon": {
+        "ProductQualifiedID": "(O){{ModID}}_GlazedHeartMelon",
+        "ProductAmount": 1,
+        "Ingredients": [
+            {
+                "Type": "Item",
+                "Value": "(O){{ModID}}_NHMelon",
+                "Amount": 1,
+            },
+        
+            {
+                "Type": "ContextTag",
+                "Value": "sugar_item",
+                "Amount": 2,
+                "OverrideText": "Requires sugar",
+                "OverrideTexture"
+            },
+        ]
+    }
+}}
+ */
+//add items as universal loves + likes
+ {
+        "LogName": "Add universally loved gift",
+        "Action": "EditData",
+        "Target": "Data/NPCGiftTastes",
+        "TextOperations": [
+        { "Operation": "Append",
+          "Target": ["Entries", "Universal_Love"],
+          "Value": "{{ModId}}_GlazedHeartMelon {{ModID}}_LoveTea",
+          "Delimiter": " "
+        },
+        {   "Operation": "Append",
+          "Target": ["Entries", "Universal_Like"],
+          "Value": "{{ModId}}_NHMelon",
+          "Delimiter": " "},
+
+        ],
+        //only need to append because it's just one string
+},
+
+
+/* ············································ */
+/* : _____  _    ____ ____  _____ _     ____  : */
+/* :|_   _|/ \  / ___/ ___|| ____| |   / ___| : */
+/* :  | | / _ \ \___ \___ \|  _| | |   \___ \ : */
+/* :  | |/ ___ \ ___) |__) | |___| |___ ___) |: */
+/* :  |_/_/   \_\____/____/|_____|_____|____/ : */
+/* ············································ */
+
+/////////tassel object patch
+   {
+            "LogName": "Add equippable Magenta Tassel",
+            "Action": "EditData",
+            "Target": "Data/Objects",
+            "Entries": {
+                "{{ModId}}_EquippableTassel": {
+                    "Name": "{{ModId}}_EquippableTassel",
+                    "DisplayName": "{{i18n:Tassel.DisplayName}}",
+                    "Description": "{{i18n:Tassel.Description}}",
+                    "Type": "Ring",
+                    "Category": "-96",
+                    "Price": "2500",
+                    "Texture": "{{ModId}}\\recipes",
+                    "SpriteIndex": 1,
+                    "ContextTags": [
+                        "color_red"
+                         ],
+                    "ExcludeFromShippingCollection": true,
+                
+                }
+            }
+        },
+                {
+            "LogName": "Add giftable Magenta Tassel",
+            "Action": "EditData",
+            "Target": "Data/Objects",
+            "Entries": {
+                "{{ModId}}_GiftableTassel": {
+                    "Name": "{{ModId}}_GiftableTassel",
+                    "DisplayName": "{{i18n:GiftableTassel.DisplayName}}",
+                    "Description": "{{i18n:GiftableTassel.Description}}",
+                    "Type": "Basic",
+                    "Category": "-2",
+                    "Price": "2500",
+                    "Texture": "{{ModId}}\\recipes",
+                    "SpriteIndex": 1,
+                    "ContextTags": [
+                        "color_red", /* "propose_roommate_void.peiming_peiming" */
+                         ],
+                    "ExcludeFromShippingCollection": true,
+                
+                }
+            }
+        },
+
+////////Tassel buffs
+{ 
+    "LogName": "Add buffs to equippable tassel",
+    "Action": "EditData",
+    "Target": "Data/Buffs",
+    "Entries": {
+         "{{ModID}}_TasselBuff": {
+            "DisplayName": "{{i18n:MagentaTasselBuff}}",
+            "Duration": -1,
+            "IconTexture": "Tilesheets\\BuffsIcons",
+            "Effects": {
+                "LuckLevel": 3,
+                "CombatLevel": 4,
+                "Defense": 4,
+                "CriticalChanceMultiplier": 1.5,
+                "CriticalPowerMultiplier": 1.2,
+            },
+        }
+}
+
+},
+
+////////////////tassel crafting recipes
      {
 
-    "LogName": "Create Magenta Tassel recipe",
+    "LogName": "Create equippable Magenta Tassel recipe",
     "Action": "EditData",
-			"Target": "Data/CraftingRecipes",
-			"When": {
-				"HasCraftingRecipe": "Magenta Tassel"
-			},
+	"Target": "Data/CraftingRecipes",
 			"Entries": {
-				"{{ModID}}_Tassel": "(O){{ModID}}_NHMelon 3 (O)64 1 (O)428 1 (O)848 4/10 10/{{ModID}}_Tassel 1/false/null/Magenta Tassel/"
+				"{{ModID}}_EquippableTassel": "(O){{ModID}}_NHMelon 3 (O)64 1 (O)428 1 (O)848 4/10 10/{{ModID}}_EquippableTassel 1/false/null/Equippable Magenta Tassel/"
       }
     },
+ {
+
+    "LogName": "Create giftable Magenta Tassel recipe",
+    "Action": "EditData",
+	"Target": "Data/CraftingRecipes",
+			"Entries": {
+				"{{ModID}}_GiftableTassel": "(O){{ModID}}_NHMelon 2 (O)64 1 (O)428 1 (O)460 1/10 10/{{ModID}}_GiftableTassel 1/false/null/Giftable Magenta Tassel/"
+      }
+    },
+
+
+//////////recipe for tassels at volcano shop
+{ //Giftable Tassel recipe purchase (only with pei ming installed)
+        "LogName": "Make giftable tassel recipe available for purchase",
+		"Action": "EditData",
+        "When": { 
+            "HasMod: |contains=void.peiming": true,
+            "Hearts:void.peiming_Peiming": "8, 9, 10, 11, 12, 13, 14",
+            "FarmhouseUpgrade": "1,2,3"
+     },
+		"Target":  "Data/Shops",
+            "TargetField": [
+                "VolcanoShop",
+                "Items"
+            ],
+            "Entries": {
+                    "{{ModId}}_GiftableTasselRecipe": {
+                    
+                    "Id": "{{ModId}}_GiftableTasselRecipe",
+                    "ItemId": "(O){{ModID}}_GiftableTassel",
+                    "IsRecipe": true,
+                    "ObjectInternalName": "{{ModID}}_GiftableTassel",
+                    "Price": 500000,
+                    
+                    }
+                },
+                "MoveEntries": [
+                    {
+                    "ID": "{{ModId}}_EquippableTasselRecipe",
+                    "ToPosition": "Top"
+                    } ]
+
+},
+
+{ //equippable tassel recipe purchase with NPC Pei Ming installed
+        "LogName": "Make equippable tassel recipe available for purchase(Pei Ming installed)",
+		"Action": "EditData",
+        "When": { 
+            "HasMod: |contains=void.peiming": true,
+            "HasSeenEvent": "void.peiming_RoommateProposal",
+            "HasCraftingRecipe": "{{ModID}}_GiftableTasselRecipe",
+     },
+		"Target":  "Data/Shops",
+            "TargetField": [
+                "VolcanoShop",
+                "Items"
+            ],
+            "Entries": {
+                    "{{ModId}}_EquippableTasselRecipe": {
+                    
+                    "Id": "{{ModId}}_EquippableTasselRecipe",
+                    "ItemId": "(O){{ModID}}_EquippableTassel",
+                    "IsRecipe": true,
+                    "ObjectInternalName": "{{ModID}}_EquippableTassel",
+                    "Price": 500000,
+                    
+                    }
+                },
+                "MoveEntries": [
+                    {
+                    "ID": "{{ModId}}_EquippableTasselRecipe",
+                    "ToPosition": "Top"
+                    } ]
+
+},
+{ //equippable tassel without NPC Pei Ming installed
+    "LogName": "Make equippable tassel recipe available for purchase(PM not installed)",
+		"Action": "EditData",
+        "When": { 
+            "HasMod: |contains=void.peiming": false,
+            "SkillLevel:Combat": 10,      
+     },
+		"Target":  "Data/Shops",
+            "TargetField": [
+                "VolcanoShop",
+                "Items"
+            ],
+            "Entries": {
+                    "{{ModId}}_EquippableTasselRecipe": {
+                    
+                    "Id": "{{ModId}}_EquippableTasselRecipe",
+                    "ItemId": "(O){{ModID}}_EquippableTassel",
+                    "IsRecipe": true,
+                    "ObjectInternalName": "{{ModID}}_EquippableTassel",
+                    "Price": 500000,
+                    
+                    }
+                },
+                "MoveEntries": [
+                    {
+                    "ID": "{{ModId}}_EquippableTasselRecipe",
+                    "ToPosition": "Top"
+                    } ]
+
+},
+
+//Spacecore shenanigans for the Tassels (space core saved me i love space core 4ever)
+{
+    "LogName": "Giftable Tassel- Vanilla Asset Extentions SpaceCore patch",
+    "Action": "EditData",
+    "Target": "spacechase0.SpaceCore/ObjectExtensionData",
+    "Entries": {
+        "{{ModID}}_GiftableTassel": {
+            "GiftableToNpcAllowList": {"void.peiming_Peiming": true},
+            "GiftedToNotOnAllowListMessage": "{{i18n:GiftedToNotOnAllowListMessage}}",
+            "UseForTriggerAction": true,
+        }
+    }
+},
+{
+    "LogName": "Equippable Tassel - Adding Buffs via SpaceCore",
+    "Action": "EditData",
+    "Target": "spacechase0.SpaceCore/WearableData",
+    "Entries":{
+        "(O){{ModID}}_EquippableTassel": {
+            "BuffIdToApply": "{{ModID}}_TasselBuff", 
+
+        }
+
+
+    }
+},
+
+
+
+//vanilla
+//format COOKING: "<unique ID>": "<0: ingredients by ID>/<1:unused but needs to be filled or else recipe is invalid>/<2:yield>/<3:unlock conditions>/<4:display name>"
+//format CRAFTING: "<unique ID>": "<0: ingredients by ID>/<1:unused but needs to be filled or else recipe is invalid>/<2:yield>/<3: big craftable true or false>/<4:unlock conditions>/<5:display name>"
+//The ingredients are a space-separated list of numbers in pairs. The first number of each pair is an object index, negative numbers refer to categories; second number is quantity
+//The yield is also a space-separated list of numbers in pairs. The first number of each pair is an object or big craftable ID.  second number is quantity
+   
+
 /* //trigger actions (BETAS) my plan doesn't work. it was supposed to act similarly to stardrop tea but that's HARDCODED. this relic will remain in here until i can access the stardrop tea's effects
 {   "LogName": "Love Tea adds a lot of friendship points! (BETAS)",
 	"Action": "EditData",
@@ -450,25 +593,6 @@
 		}
 	}
 } */
-//add items as universal loves + likes
- {
-        "LogName": "Add universally loved gift",
-        "Action": "EditData",
-        "Target": "Data/NPCGiftTastes",
-        "TextOperations": [
-        { "Operation": "Append",
-          "Target": ["Entries", "Universal_Love"],
-          "Value": "{{ModId}}_GlazedHeartMelon, {{ModID}}_LoveTea",
-          "Delimiter": ","
-        },
-        {   "Operation": "Append",
-          "Target": ["Entries", "Universal_Like"],
-          "Value": "{{ModId}}_NHMelon",
-          "Delimiter": ","},
-
-        ],
-        //only need to append because it's just one string
-},
 
 
 ]
