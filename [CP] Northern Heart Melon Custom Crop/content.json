@@ -1,0 +1,734 @@
+{ "Format": "2.8.0",
+// NEED TRIGGER ACTIONS FOR RECIPE UNLOCK!!!!
+//add config options!!!!
+
+
+"Changes": 
+[
+//texture load
+        { 
+			"LogName": "Load textures for custom crop and recipes",
+            "Action": "Load",
+            "Target": "{{ModId}}/objects, {{ModId}}/crops, {{ModId}}/recipes",
+            //Target is the custom texture name to use. This needs to be unique between mods, so it is highly recommended to include your *unique mod Id* as part of the path. Texture name can be anything
+            //You can also include multiple items or crops on the same spritesheet.
+            "FromFile": "assets/{{TargetWithoutPath}}.png"
+            //Using {{TargetWithoutPath}} automatically pulls from the .png image with the same name as the texture
+            //In this case, "assets/objects.png" and "assets/crops.png". You can use any folder name as long as your image and code match.
+        },
+  
+
+
+/* ············································· */
+/* : ____  _____ _____ ____  ____     ___      : */
+/* :/ ___|| ____| ____|  _ \/ ___|   ( _ )     : */
+/* :\___ \|  _| |  _| | | | \___ \   / _ \/\   : */
+/* : ___) | |___| |___| |_| |___) | | (_>  <   : */
+/* :|____/|_____|_____|____/|____/  _\___/\/__ : */
+/* :|  _ \|  _ \ / _ \|  _ \| | | |/ ___| ____|: */
+/* :| |_) | |_) | | | | | | | | | | |   |  _|  : */
+/* :|  __/|  _ <| |_| | |_| | |_| | |___| |___ : */
+/* :|_|   |_| \_\\___/|____/ \___/ \____|_____|: */
+/* ············································· */
+
+
+
+//add in seeds and produce
+        {	
+            "LogName": "Add in the seeds + produce",
+            "Action": "EditData",
+            "Target": "Data/Objects",
+            "Entries": {
+                // SEED ITEM
+                "{{ModId}}_NHMSeeds": {
+                    "Name": "{{ModId}}_NHMSeeds",
+                    "Displayname": "{{i18n:NHMSeedsName}}",
+                    "Description": "{{i18n:NHMSeedsDescription}}",
+                    "Type": "Seeds",
+                    "Category": -74, //crop seeds must be category -74 to plant crops
+                    "Price": 250,
+                    "Texture": "{{ModId}}/objects", // Texture must exactly match the name of one of your loaded textures, NOT your .png
+                    "SpriteIndex": 0,  // Tells the game what position on the spritesheet (in this case, objects.png) to look for your item. Indexes start at 0. per 16x16 unit for objects
+                },
+                // PRODUCED ITEM
+                "{{ModId}}_NHMelon": {
+                    "Name": "{{ModId}}_NHMelon", //internal name
+                    "DisplayName": "{{i18n:NHMelon.DisplayName}}",
+                    "Description": "{{i18n:NHMelon.Description}}",
+                    "Type": "Basic",
+                    "Category": -79,
+                    "Price": 2500,   // Money earned when player sells it
+                    "Edibility": 80,
+                    "Texture": "{{ModId}}/objects",
+                    "SpriteIndex": 1,
+                    "ExcludeFromShippingCollection": false,
+                    "ContextTags": ["color_pink", "keg_wine", "keg_juice", "preserves_jelly", "category_fruits" ]
+                }
+            }
+        },
+
+//add in plant the produce grows from
+		{	
+            "LogName": "Add in the crop/Plant",
+            "Action": "EditData",
+            "Target": "Data/Crops",
+            "Entries": {
+                "{{ModId}}_NHMSeeds": { //this must EXACTLY match the item id of your seeds item
+                    "Seasons": [
+                        "winter",
+                    ],
+                    // The crop has 5 phases that each takes 1 day, making it 5 total days to harvest
+                    "DaysInPhase": [ // First two seed sprites on the crop image are not counted as a phase, instead they are seed variants
+                        2,
+                        3,
+                        5,
+                        5,
+                        5
+                    ],
+                    // For this example, we made a regrowable crop. Non regrowable crops use -1 in this field
+					// Regrowing crops show the second to last sprite when they have produce, and the final sprite when they are regrowing
+                    "RegrowDays": -1,
+                    "HarvestMinStack": 1,
+                    "HarvestMaxStack": 1,
+                    "HarvestItemId": "{{ModId}}_NHMelon",
+                    "Texture": "{{ModId}}/crops",
+                    "SpriteIndex": 0,
+                    "CountForMonoculture": true,
+                    "CountForPolyculture": true,
+                }
+            }
+        },
+
+//add seeds to desert trader shop
+		{ 
+            "LogName": "Make seeds available for purchase",
+		    "Action": "EditData",
+		    "Target":  "Data/Shops",
+            "When": { "HasMod: |contains=void.peiming": false },
+            // Since Carpenter is an existing shop, we need to avoid overwriting the entire entry and only add 1 new item
+            "TargetField": [
+                "DesertTrade",
+                "Items"
+            ],
+            "Entries": {
+                // Add the seed item to trader's shop
+                "{{ModId}}_NHMSeeds": {
+                    "Id": "{{ModId}}_NHMSeeds",
+                    "ItemId": "{{ModId}}_NHMSeeds",
+					"TradeItemId": "(O)74",
+					"TradeItemAmount": "3",
+					"AvailableStock": "2",
+                }
+            },      
+            
+		},
+
+        { //With NPC Pei Ming installed
+            "LogName": "Make seeds available for purchase",
+		    "Action": "EditData",
+		    "Target":  "Data/Shops",
+            "When": { "HasMod: |contains=void.peiming": true,
+            "HasReadLetter:AnyPlayer |contains={{ModID}}_NHMSeedsLetter": true },
+            "TargetField": [
+                "DesertTrade",
+                "Items"
+            ],
+            "Entries": {
+
+                "{{ModId}}_NHMSeeds": {
+                    "Id": "{{ModId}}_NHMSeeds",
+                    "ItemId": "{{ModId}}_NHMSeeds",
+					"TradeItemId": "(O)74",
+					"TradeItemAmount": "3",
+					"AvailableStock": "2",
+                }
+            },     
+            
+		},
+
+//objects
+
+ {
+            "LogName": "Add object: Glazed Heart Melon",
+            "Action": "EditData",
+            "Target": "Data/Objects",
+            "Entries": {
+                "{{ModId}}_GlazedHeartMelon": {
+                    "Name": "{{ModId}}_GlazedHeartMelon",
+                    "DisplayName": "{{i18n:GlazedHeartMelon.DisplayName}}",
+                    "Description": "{{i18n:GlazedHeartMelon.Description}}",
+                    "Edibility": "120",
+                    "Type": "Cooking",
+                    "Category": -7,
+                    "Price": "70000",
+                    "Texture": "{{ModId}}\\recipes",
+                    "SpriteIndex": 0,
+                    "ContextTags": [
+                        "color_pink",
+                        "food_sweet",
+                        "candied_fruit_item"
+                    ],
+                    "Buffs": [
+                                {
+                                    "Id": "{{ModId}}_GlazedHMLuckBuff",
+                                    "BuffId": "{{ModID}}_NHMBuff",
+                                }
+                            ] 
+                }
+            }
+        },
+        
+        {
+            "LogName": "Add object: Love Tea",
+            "Action": "EditData",
+            "Target": "Data/Objects",
+            "Entries": {
+                "{{ModId}}_LoveTea": {
+                    "Name": "{{ModId}}_LoveTea",
+                    "DisplayName": "{{i18n:LoveTea.DisplayName}}",
+                    "Description": "{{i18n:LoveTea.Description}}",
+                    "Edibility": "300",
+                    "IsDrink": true,
+                    "Type": "Cooking",
+                    "Category": -7,
+                    "Price": "10000",
+                    "Texture": "{{ModId}}\\recipes",
+                    "SpriteIndex": 2,
+                    "ContextTags": [
+                        "color_pink",
+                        "food_sweet",
+                        "drink_item",
+                       
+                    ],
+                    "Buffs": [
+                                {
+                                    "Id": "{{ModId}}_GlazedHMLuckBuff",
+                                    "BuffId": "21, {{ModID}}_NHMBuff",
+                                }
+                            ] 
+                }
+            }
+        },
+         {
+            "LogName": "Add object: Heart Melon Huangjiu",
+            "Action": "EditData",
+            "Target": "Data/Objects",
+            "Entries": {
+                "{{ModId}}_HeartMelonHuangjiu": {
+                    "Name": "{{ModId}}_HeartMelonHuanjiu",
+                    "DisplayName": "{{i18n:HeartMelonHuangjiu.DisplayName}}",
+                    "Description": "{{i18n:HeartMelonHuangjiu.Description}}",
+                    "Edibility": "25",
+                    "IsDrink": true,
+                    "Type": "Basic",
+                    "Category": -26,
+                    "Price": "4000",
+                    "Texture": "{{ModId}}\\recipes",
+                    "SpriteIndex": 4,
+                    "ContextTags": [
+                        "color_pink",
+                        "drink_item",
+                        "alcohol_item",
+
+                    ],
+                }
+            }
+        },
+
+//recipe for love tea and glazed heart melon at night market when PM is not installed
+{ 
+        "LogName": "Make love tea recipe available for purchase at night market without NPC installed",
+		"Action": "EditData",
+        "When": { "HasMod: |contains=void.peiming": false,
+            
+             },
+		"Target":  "Data/Shops",
+            "TargetField": [
+                "Festival_NightMarket_MagicBoat_Day2",
+                "Items"
+            ],
+            "Entries": {
+                    "{{ModId}}_LoveTeaRecipe": {
+                    
+                    "Id": "{{ModId}}_LoveTeaRecipe",
+                    "ItemId": "(O){{ModID}}_LoveTea",
+                    "IsRecipe": true,
+                    "ObjectInternalName": "{{ModID}}_LoveTea",
+                    "Price": 250000,
+                    
+                    }
+                },
+                
+
+},
+
+{ 
+        "LogName": "Make love tea recipe available for purchase at night market without NPC installed",
+		"Action": "EditData",
+        "When": { "HasMod: |contains=void.peiming": false,
+             },
+		"Target":  "Data/Shops",
+            "TargetField": [
+                "Festival_NightMarket_MagicBoat_Day3",
+                "Items"
+            ],
+            "Entries": {
+                    "{{ModId}}_LoveTeaRecipe": {
+                    
+                    "Id": "{{ModId}}_LoveTeaRecipe",
+                    "ItemId": "(O){{ModID}}_LoveTea",
+                    "IsRecipe": true,
+                    "ObjectInternalName": "{{ModID}}_LoveTea",
+                    "Price": 250000,
+                    
+                    }
+                },
+                
+
+},
+ 
+///////////////////recipes
+//add in cooked items and buffs
+
+{ 
+    "LogName": "Add Custom Buffs",
+    "Action": "EditData",
+    "Target": "Data/Buffs",
+    "Entries": {
+        "{{ModID}}_NHMBuff": 
+    {
+            "DisplayName": "{{i18n:HeartMelonBuff}}",
+            "Duration": -2, // This sets it to last for the entire day
+            "IconTexture": "Tilesheets\\BuffsIcons",
+            "IconSpriteIndex": 16, // The index within the icon texture set above. Each index is 16x16, and is read left to right, top to bottom.
+            "Effects": 
+        {
+              "FarmingLevel": 1,
+                "FishingLevel": 4,
+                "ForagingLevel": 2,
+                "LuckLevel": 5,
+                "MiningLevel": 2,
+                "CombatLevel": 3,
+                "Defense": 3,
+                "CritChanceMultiplier": 3,
+        }
+    },
+       
+},
+},
+
+ { //////////COOKING RECIPES
+
+    "LogName": "Create Glazed Heart Melon recipe",
+      "Action": "EditData",
+      "Target": "Data/CookingRecipes",
+      "Entries": {
+		"{{ModID}}_GlazedHeartMelon": "(O){{ModID}}_NHMelon 1 (O)245 2 (O)417 1 (O)724 1/10 10/{{ModID}}_GlazedHeartMelon 1/null/Glazed Heart Melon/",
+      }
+    },
+      {
+
+    "LogName": "Create Love Tea recipe",
+      "Action": "EditData",
+      "Target": "Data/CookingRecipes",
+      "Entries": {
+		"{{ModID}}_LoveTea": "(O){{ModID}}_NHMelon 1 (O)417 1 (O)614 1 (O)454 3/10 10/{{ModID}}_LoveTea 1/null/Love Tea/",
+      }
+    },
+
+//machine outputs
+{
+            "LogName": "Add machine Output: Heart Melon Huangjiu - Pei Ming installed",
+			"Action": "EditData",
+            "When": { "HasMod: |contains=void.peiming": true},
+			"Target": "Data/Machines",
+			"TargetField": [
+				"(BC)12",
+				"OutputRules"
+			],
+			"Entries": {
+				"{{ModId}}_HeartMelonHuangjiu": {
+					"Id": "{{ModId}}_HeartMelonHuangjiu",
+					"Triggers": [
+						{
+							"RequiredItemId": "(O){{ModID}}_NHMelon",
+							"RequiredCount": 1,
+                            "Condition": "PLAYER_HAS_MAIL Current void.peiming_HuangjiuLetter Received"
+						},
+                        	
+					],
+					"OutputItem": [
+						{
+							"ItemId": "(O){{ModID}}_HeartMelonHuangjiu",
+							"ObjectInternalName": "{0} HeartMelonHuangjiu",
+							"ObjectDisplayName": "Heart Melon Huangjiu",
+							"PreserveId": "",
+							"CopyPrice": true,
+							"PriceModifiers": [
+								{
+									"Modification": "Multiply",
+									"Amount": 7
+								},
+							]
+						}
+					],
+					"DaysUntilReady": 3,
+					"AdditionalConsumedItems":
+                    {
+							"RequiredItemId": "(O)271",
+							"RequiredCount": 2,
+						},
+				}
+			},
+			"MoveEntries": [
+				{
+					"Id": "{{ModId}}_HeartMelonHuangjiu",
+					"BeforeId": "Default_Juice"
+				}
+			]
+		},
+
+{
+            "LogName": "Add machine Output: Heart Melon Huangjiu - without Pei Ming installed",
+			"Action": "EditData",
+            "When": { "HasMod: |contains=void.peiming": false},
+			"Target": "Data/Machines",
+			"TargetField": [
+				"(BC)12",
+				"OutputRules"
+			],
+			"Entries": {
+				"{{ModId}}_HeartMelonHuangjiu": {
+					"Id": "{{ModId}}_HeartMelonHuangjiu",
+					"Triggers": [
+						{
+							"RequiredItemId": "(O){{ModID}}_NHMelon",
+							"RequiredCount": 1,
+                            "Condition": "DAYS_PLAYED 128"
+						},
+                        	
+					],
+					"OutputItem": [
+						{
+							"ItemId": "(O){{ModID}}_HeartMelonHuangjiu",
+							"ObjectInternalName": "{0} HeartMelonHuangjiu",
+							"ObjectDisplayName": "Heart Melon Huangjiu",
+							"PreserveId": "",
+							"CopyPrice": true,
+							"PriceModifiers": [
+								{
+									"Modification": "Multiply",
+									"Amount": 7
+								},
+							]
+						}
+					],
+					"DaysUntilReady": 3,
+					"AdditionalConsumedItems":
+                    {
+							"RequiredItemId": "(O)271",
+							"RequiredCount": 2,
+						},
+				}
+			},
+			"MoveEntries": [
+				{
+					"Id": "{{ModId}}_HeartMelonHuangjiu",
+					"BeforeId": "Default_Juice"
+				}
+			]
+		},
+
+///cooking recipes spacecore override... I will eventually add this in
+/* { "LogName": "Cooking Recipe spacecore overrides",
+"Action": "EditData",
+"Target": "spacechase0.SpaceCore/CookingRecipeOverrides",
+"Entries": {
+    "{{ModID}}_GlazedHeartMelon": {
+        "ProductQualifiedID": "(O){{ModID}}_GlazedHeartMelon",
+        "ProductAmount": 1,
+        "Ingredients": [
+            {
+                "Type": "Item",
+                "Value": "(O){{ModID}}_NHMelon",
+                "Amount": 1,
+            },
+        
+            {
+                "Type": "ContextTag",
+                "Value": "sugar_item",
+                "Amount": 2,
+                "OverrideText": "Requires sugar",
+                "OverrideTexture"
+            },
+        ]
+    }
+}}
+ */
+//add items as universal loves + likes
+ {
+        "LogName": "Add universally loved gift",
+        "Action": "EditData",
+        "Target": "Data/NPCGiftTastes",
+        "TextOperations": [
+        { "Operation": "Append",
+          "Target": ["Entries", "Universal_Love"],
+          "Value": "{{ModId}}_GlazedHeartMelon {{ModID}}_LoveTea",
+          "Delimiter": " "
+        },
+        {   "Operation": "Append",
+          "Target": ["Entries", "Universal_Like"],
+          "Value": "{{ModId}}_NHMelon",
+          "Delimiter": " "},
+
+        ],
+        //only need to append because it's just one string
+},
+
+
+/* ············································ */
+/* : _____  _    ____ ____  _____ _     ____  : */
+/* :|_   _|/ \  / ___/ ___|| ____| |   / ___| : */
+/* :  | | / _ \ \___ \___ \|  _| | |   \___ \ : */
+/* :  | |/ ___ \ ___) |__) | |___| |___ ___) |: */
+/* :  |_/_/   \_\____/____/|_____|_____|____/ : */
+/* ············································ */
+
+/////////tassel object patch
+   {
+            "LogName": "Add equippable Magenta Tassel",
+            "Action": "EditData",
+            "Target": "Data/Objects",
+            "Entries": {
+                "{{ModId}}_EquippableTassel": {
+                    "Name": "{{ModId}}_EquippableTassel",
+                    "DisplayName": "{{i18n:Tassel.DisplayName}}",
+                    "Description": "{{i18n:Tassel.Description}}",
+                    "Type": "Ring",
+                    "Category": "-96",
+                    "Price": "2500",
+                    "Texture": "{{ModId}}\\recipes",
+                    "SpriteIndex": 3,
+                    "ContextTags": [
+                        "color_red"
+                         ],
+                    "ExcludeFromShippingCollection": true,
+                
+                }
+            }
+        },
+                {
+            "LogName": "Add giftable Magenta Tassel",
+            "Action": "EditData",
+            "Target": "Data/Objects",
+            "Entries": {
+                "{{ModId}}_GiftableTassel": {
+                    "Name": "{{ModId}}_GiftableTassel",
+                    "DisplayName": "{{i18n:GiftableTassel.DisplayName}}",
+                    "Description": "{{i18n:GiftableTassel.Description}}",
+                    "Type": "Basic",
+                    "Category": "-2",
+                    "Price": "2500",
+                    "Texture": "{{ModId}}\\recipes",
+                    "SpriteIndex": 1,
+                    "ContextTags": [
+                        "color_red", /* "propose_roommate_void.peiming_peiming" */
+                         ],
+                    "ExcludeFromShippingCollection": true,
+                
+                }
+            }
+        },
+
+////////Tassel buffs
+{ 
+    "LogName": "Add buffs to equippable tassel",
+    "Action": "EditData",
+    "Target": "Data/Buffs",
+    "Entries": {
+         "{{ModID}}_TasselBuff": {
+            "DisplayName": "{{i18n:MagentaTasselBuff}}",
+            "Duration": -1,
+            "IconTexture": "Tilesheets\\BuffsIcons",
+            "Effects": {
+                "LuckLevel": 3,
+                "CombatLevel": 4,
+                "Defense": 4,
+                "CriticalChanceMultiplier": 1.5,
+                "CriticalPowerMultiplier": 1.2,
+            },
+        }
+}
+
+},
+
+////////////////tassel crafting recipes
+     {
+
+    "LogName": "Create equippable Magenta Tassel recipe",
+    "Action": "EditData",
+	"Target": "Data/CraftingRecipes",
+			"Entries": {
+				"{{ModID}}_EquippableTassel": "(O){{ModID}}_NHMelon 3 (O)64 1 (O)428 1 (O)848 4/10 10/{{ModID}}_EquippableTassel 1/false/null/Equippable Magenta Tassel/"
+      }
+    },
+ {
+
+    "LogName": "Create giftable Magenta Tassel recipe",
+    "Action": "EditData",
+	"Target": "Data/CraftingRecipes",
+			"Entries": {
+				"{{ModID}}_GiftableTassel": "(O){{ModID}}_NHMelon 2 (O)64 1 (O)428 1 (O)460 1/10 10/{{ModID}}_GiftableTassel 1/false/null/Giftable Magenta Tassel/"
+      }
+    },
+
+
+//////////recipe for tassels at volcano shop
+{ //Giftable Tassel recipe purchase (only with pei ming installed)
+        "LogName": "Make giftable tassel recipe available for purchase",
+		"Action": "EditData",
+        "When": { 
+            "HasMod: |contains=void.peiming": true,
+            "Hearts:void.peiming_Peiming": "8, 9, 10, 11, 12, 13, 14",
+            "FarmhouseUpgrade": "1,2,3"
+     },
+		"Target":  "Data/Shops",
+            "TargetField": [
+                "VolcanoShop",
+                "Items"
+            ],
+            "Entries": {
+                    "{{ModId}}_GiftableTasselRecipe": {
+                    
+                    "Id": "{{ModId}}_GiftableTasselRecipe",
+                    "ItemId": "(O){{ModID}}_GiftableTassel",
+                    "IsRecipe": true,
+                    "ObjectInternalName": "{{ModID}}_GiftableTassel",
+                    "Price": 500000,
+                    
+                    }
+                },
+                "MoveEntries": [
+                    {
+                    "ID": "{{ModId}}_EquippableTasselRecipe",
+                    "ToPosition": "Top"
+                    } ]
+
+},
+
+{ //equippable tassel recipe purchase with NPC Pei Ming installed
+        "LogName": "Make equippable tassel recipe available for purchase(Pei Ming installed)",
+		"Action": "EditData",
+        "When": { 
+            "HasMod: |contains=void.peiming": true,
+            "HasSeenEvent": "void.peiming_RoommateProposal",
+            "HasCraftingRecipe": "{{ModID}}_GiftableTasselRecipe",
+     },
+		"Target":  "Data/Shops",
+            "TargetField": [
+                "VolcanoShop",
+                "Items"
+            ],
+            "Entries": {
+                    "{{ModId}}_EquippableTasselRecipe": {
+                    
+                    "Id": "{{ModId}}_EquippableTasselRecipe",
+                    "ItemId": "(O){{ModID}}_EquippableTassel",
+                    "IsRecipe": true,
+                    "ObjectInternalName": "{{ModID}}_EquippableTassel",
+                    "Price": 500000,
+                    
+                    }
+                },
+                "MoveEntries": [
+                    {
+                    "ID": "{{ModId}}_EquippableTasselRecipe",
+                    "ToPosition": "Top"
+                    } ]
+
+},
+{ //equippable tassel without NPC Pei Ming installed
+    "LogName": "Make equippable tassel recipe available for purchase(PM not installed)",
+		"Action": "EditData",
+        "When": { 
+            "HasMod: |contains=void.peiming": false,
+            "SkillLevel:Combat": 10,      
+     },
+		"Target":  "Data/Shops",
+            "TargetField": [
+                "VolcanoShop",
+                "Items"
+            ],
+            "Entries": {
+                    "{{ModId}}_EquippableTasselRecipe": {
+                    
+                    "Id": "{{ModId}}_EquippableTasselRecipe",
+                    "ItemId": "(O){{ModID}}_EquippableTassel",
+                    "IsRecipe": true,
+                    "ObjectInternalName": "{{ModID}}_EquippableTassel",
+                    "Price": 500000,
+                    
+                    }
+                },
+                "MoveEntries": [
+                    {
+                    "ID": "{{ModId}}_EquippableTasselRecipe",
+                    "ToPosition": "Top"
+                    } ]
+
+},
+
+//Spacecore shenanigans for the Tassels (space core saved me i love space core 4ever)
+{
+    "LogName": "Giftable Tassel- Vanilla Asset Extentions SpaceCore patch",
+    "Action": "EditData",
+    "Target": "spacechase0.SpaceCore/ObjectExtensionData",
+    "Entries": {
+        "{{ModID}}_GiftableTassel": {
+            "GiftableToNpcAllowList": {"void.peiming_Peiming": true},
+            "GiftedToNotOnAllowListMessage": "{{i18n:GiftedToNotOnAllowListMessage}}",
+            "UseForTriggerAction": true,
+        }
+    }
+},
+{
+    "LogName": "Equippable Tassel - Adding Buffs via SpaceCore",
+    "Action": "EditData",
+    "Target": "spacechase0.SpaceCore/WearableData",
+    "Entries":{
+        "(O){{ModID}}_EquippableTassel": {
+            "BuffIdToApply": "{{ModID}}_TasselBuff", 
+
+        }
+
+
+    }
+},
+
+
+
+//vanilla
+//format COOKING: "<unique ID>": "<0: ingredients by ID>/<1:unused but needs to be filled or else recipe is invalid>/<2:yield>/<3:unlock conditions>/<4:display name>"
+//format CRAFTING: "<unique ID>": "<0: ingredients by ID>/<1:unused but needs to be filled or else recipe is invalid>/<2:yield>/<3: big craftable true or false>/<4:unlock conditions>/<5:display name>"
+//The ingredients are a space-separated list of numbers in pairs. The first number of each pair is an object index, negative numbers refer to categories; second number is quantity
+//The yield is also a space-separated list of numbers in pairs. The first number of each pair is an object or big craftable ID.  second number is quantity
+   
+
+/* //trigger actions (BETAS) my plan doesn't work. it was supposed to act similarly to stardrop tea but that's HARDCODED. this relic will remain in here until i can access the stardrop tea's effects
+{   "LogName": "Love Tea adds a lot of friendship points! (BETAS)",
+	"Action": "EditData",
+	"Target": "Data/TriggerActions",
+	"Entries": {
+		"{{ModId}}_LoveTeaFriendship": {
+			"Id": "{{ModId}}_LoveTeaFriendship",
+			"Trigger": "Spiderbuttons.BETAS_GiftGiven",
+			"Condition": "ITEM_ID Target Haley, ITEM_ID Input (O){{ModId}}_LoveTea",
+			"Action": "SetFriendshipPoints {{Characters}} #600"
+		}
+	}
+} */
+
+
+]
+  
+}

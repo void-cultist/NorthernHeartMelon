@@ -1,0 +1,20 @@
+{
+    "NHMSeedsName": "Northern Heart Melon seeds",
+    "NHMSeedsDescription": "Plant these in Winter to grow a Northern Heart Melon. Needs 20 days to grow.",
+    "NHMelon.DisplayName": "Northern Heart Melon",
+    "NHMelon.Description": "A very rare fruit from a deity's garden that is said to increase a person's fondness towards another.",
+    "GlazedHeartMelon.DisplayName": "Glazed Heart Melon",
+    "GlazedHeartMelon.Description": "A sweet treat. Gifting it to someone shows that you really like them!",
+    "LoveTea.DisplayName": "Love Tea",
+    "LoveTea.Description": "A mysterious beverage that is said to make anyone like you instantly.",
+    "Tassel.DisplayName": "Tassel",
+    "Tassel.Description": "An equippable accessory (Ring slot). Increases luck, defense and critical stats.",
+    "GiftableTassel.DisplayName": "Magenta Tassel",
+    "GiftableTassel.Description": "A beautiful handcrafted accessory, a token of companionship. Perhaps a certain ancient deity might appreciate this?",
+    "GiftedToNotOnAllowListMessage": "I am sorry, this isn't really what I like. Why don't you make use of it yourself?",
+    "HeartMelonBuff": "Heart Melon Buff",
+    "MagentaTasselBuff": "Magenta Tassel buff",
+    "HeartMelonHuangjiu.DisplayName": "Heart Melon Huanjiu",
+    "HeartMelonHuangjiu.Description": "A type of traditional liquor brewed by mixing boiled grains such as rice, glutinous rice, or millet. This specific one has Northern Heart Melon added in, giving it a distinct flavor.",
+
+}
