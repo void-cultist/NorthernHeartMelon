@@ -1,7 +1,139 @@
 { "Format": "2.8.0",
 // NEED TRIGGER ACTIONS FOR RECIPE UNLOCK!!!!
 //add config options!!!!
+"ConfigSchema": {
+    "Northern Heart Melon Price":
+    {
+        "AllowValues": "1250, 2500, 5000",
+        "Default": 2500,
+        "AllowBlank": false,
+        "Description": "Adjust the price of the Northern Heart Melon (Crop)."
+    },
+    "Glazed Heart Melon Price":
+    {
+        "AllowValues": "3500, 5000, 7000",
+        "Default": 7000,
+        "AllowBlank": false,
+        "Description": "Adjust the price of the Glazed Heart Melon dish."
+    },
+     "Love Tea Price":
+    {
+        "AllowValues": "5000, 10000, 15000",
+        "Default": 10000,
+        "AllowBlank": false,
+        "Description": "Adjust the price of Love Tea (cooking recipe)."
+    },
+    "Heart Melon Huangjiu Price":
+    {
+        "AllowValues": "4000, 8000, 12000",
+        "Default": 4000,
+        "AllowBlank": false,
+        "Description": "Adjust the price of Heart Melon Huangjiu (artisan good)."
+    },
+    "Giftable Tassel Price":
+    {
+        "AllowValues": "250000, 500000, 750000",
+        "Default": 500000,
+        "AllowBlank": false,
+        "Description": "Adjust the cost of the Giftable Tassel recipe at the Volcano Shop. The Giftable Tassel will only be available with the NPC Pei Ming installed."
+    },
+    "Equippable Tassel Price":
+    {
+        "AllowValues": "125000, 250000, 500000",
+        "Default": 500000,
+        "AllowBlank": false,
+        "Description": "Adjust the cost of the Equippable Tassel recipe at the Volcano Shop"
+    },
 
+
+},
+
+"DynamicTokens": [
+    //NHM Price
+    {
+        "Name": "Northern Heart Melon Price",
+        "When": { "Northern Heart Melon Price": 1250 },
+        "Value": 1250
+    },
+    {
+        "Name": "Northern Heart Melon Price",
+        "When": { "Northern Heart Melon Price": 2500 },
+        "Value": 2500
+    },
+    {
+        "Name": "Northern Heart Melon Price",
+        "When": { "Northern Heart Melon Price": 5000 },
+        "Value": 5000
+    },
+
+    //GlazedHM price
+    {
+        "Name": "Glazed Heart Melon Price",
+        "When": { "Glazed Heart Melon Price": 3500 },
+        "Value": 3500
+    },
+    {
+        "Name": "Glazed Heart Melon Price",
+        "When": { "Glazed Heart Melon Price": 5000 },
+        "Value": 5000
+    },
+    {
+        "Name": "Glazed Heart Melon Price",
+        "When": { "Glazed Heart Melon Price": 7000 },
+        "Value": 7000
+    },
+
+    //Love Tea price
+     {
+        "Name": "Love Tea Price",
+        "When": { "Love Tea Price": 5000 },
+        "Value": 5000
+    },
+    {
+        "Name": "Love Tea Price",
+        "When": { "Love Tea Price": 10000 },
+        "Value": 10000
+    },
+    {
+        "Name": "Love Tea Price",
+        "When": { "Love Tea Price": 15000 },
+        "Value": 15000
+    },
+    //Giftable Tassel recipe cost
+    {
+        "Name": "Giftable Tassel Price",
+        "When": { "Giftable Tassel Price": 250000 },
+        "Value": 250000
+    },
+     {
+        "Name": "Giftable Tassel Price",
+        "When": { "Giftable Tassel Price": 500000 },
+        "Value": 500000
+    },
+       {
+        "Name": "Giftable Tassel Price",
+        "When": { "Giftable Tassel Price": 750000 },
+        "Value": 750000
+    },
+
+    //Equippable Tassel recipe cost
+    {
+        "Name": "Equippable Tassel Price",
+        "When": { "Equippable Tassel Price": 125000 },
+        "Value": 125000
+    },
+    {
+        "Name": "Equippable Tassel Price",
+        "When": { "Equippable Tassel Price": 250000 },
+        "Value": 250000
+    },
+    {
+        "Name": "Equippable Tassel Price",
+        "When": { "Equippable Tassel Price": 500000 },
+        "Value": 500000
+    },
+
+],
 
 "Changes": 
 [
@@ -57,7 +189,7 @@
                     "Description": "{{i18n:NHMelon.Description}}",
                     "Type": "Basic",
                     "Category": -79,
-                    "Price": 2500,   // Money earned when player sells it
+                    "Price": "{{Northern Heart Melon Price}}",   // Money earned when player sells it
                     "Edibility": 80,
                     "Texture": "{{ModId}}/objects",
                     "SpriteIndex": 1,
@@ -160,7 +292,7 @@
                     "Edibility": "120",
                     "Type": "Cooking",
                     "Category": -7,
-                    "Price": "70000",
+                    "Price": "{{Glazed Heart Melon Price}}",
                     "Texture": "{{ModId}}\\recipes",
                     "SpriteIndex": 0,
                     "ContextTags": [
@@ -191,7 +323,7 @@
                     "IsDrink": true,
                     "Type": "Cooking",
                     "Category": -7,
-                    "Price": "10000",
+                    "Price": "{{Love Tea Price}}",
                     "Texture": "{{ModId}}\\recipes",
                     "SpriteIndex": 2,
                     "ContextTags": [
@@ -215,14 +347,14 @@
             "Target": "Data/Objects",
             "Entries": {
                 "{{ModId}}_HeartMelonHuangjiu": {
-                    "Name": "{{ModId}}_HeartMelonHuanjiu",
+                    "Name": "{{ModId}}_HeartMelonHuangjiu",
                     "DisplayName": "{{i18n:HeartMelonHuangjiu.DisplayName}}",
                     "Description": "{{i18n:HeartMelonHuangjiu.Description}}",
                     "Edibility": "25",
                     "IsDrink": true,
                     "Type": "Basic",
                     "Category": -26,
-                    "Price": "4000",
+                    "Price": "{{Heart Melon Huangjiu Price}}",
                     "Texture": "{{ModId}}\\recipes",
                     "SpriteIndex": 4,
                     "ContextTags": [
@@ -438,6 +570,40 @@
 				}
 			]
 		},
+//mail for Huangjiu without Pei Ming installed
+{
+    "LogName": "Add mail for Huangjiu without NPC Pei Ming installed",
+    "Action": "EditData",
+    "When": { 
+        "HasMod: |contains=void.peiming": false,
+        "DaysPlayed": 128 },
+    "Target": "data/mail",
+    "Entries": {
+       "{{ModID}}_HuangjiuMail": "{{i18n:HuangjiuMail.text}}%item id (O){{ModID}}_NHMelon 1%%[#]{{i18n:HuangjiuMail.title}}"
+
+
+}
+},
+
+{ 
+    "LogName": "Trigger Action: add Huangjiu mail",
+    "Action": "EditData",
+     "When": { 
+        "HasMod: |contains=void.peiming": false },
+    "Target": "Data/TriggerActions",
+    "Entries": 
+			{  "{{ModID}}_Add_HuangjiuMail": 
+                { 
+				    "ID": "{{ModID}}_Add_HuangjiuLetter",
+					"Trigger": "DayEnding",
+					"Condition": "DAYS_PLAYED 128",
+					"Actions": [
+						"AddMail Current {{ModID}}_HuangjiuMail tomorrow",
+					],
+				},
+            }
+},
+
 
 ///cooking recipes spacecore override... I will eventually add this in
 /* { "LogName": "Cooking Recipe spacecore overrides",
@@ -604,7 +770,7 @@
                     "ItemId": "(O){{ModID}}_GiftableTassel",
                     "IsRecipe": true,
                     "ObjectInternalName": "{{ModID}}_GiftableTassel",
-                    "Price": 500000,
+                    "Price": "{{Giftable Tassel Price}}",
                     
                     }
                 },
@@ -636,7 +802,7 @@
                     "ItemId": "(O){{ModID}}_EquippableTassel",
                     "IsRecipe": true,
                     "ObjectInternalName": "{{ModID}}_EquippableTassel",
-                    "Price": 500000,
+                    "Price": "{{Equippable Tassel Price}}",
                     
                     }
                 },

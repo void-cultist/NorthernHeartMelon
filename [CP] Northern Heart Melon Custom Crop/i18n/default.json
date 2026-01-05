@@ -16,5 +16,26 @@
     "MagentaTasselBuff": "Magenta Tassel buff",
     "HeartMelonHuangjiu.DisplayName": "Heart Melon Huanjiu",
     "HeartMelonHuangjiu.Description": "A type of traditional liquor brewed by mixing boiled grains such as rice, glutinous rice, or millet. This specific one has Northern Heart Melon added in, giving it a distinct flavor.",
+    "HuangjiuMail.title": "How to make Huangjiu",
+    "HuangjiuMail.text": "Hello, Farmer @! We of the Huangjiu Brewers' Association have been informed of your tremendous farming efforts and progress. As such, we would like to impart our knowledge on how to make Northern Heart Melon Huangjiu on you. Place a Northern Heart Melon in a keg in addition to 2 bags of unmilled rice. Why don't you give it a try?",
+
+//configs
+"config.Northern Heart Melon Price.name": "Northern Heart Melon Price",
+"config.Northern Heart Melon Price.description": "Adjust the price of the Northern Heart Melon (Crop).",
+
+"config.Glazed Heart Melon Price.name": "Glazed Heart Melon Price",
+"config.Glazed Heart Melon Price.description": "Adjust the price of the Glazed Heart Melon dish.",
+
+"config.Love Tea Price.name": "Love Tea Price",
+"config.Love Tea Price.description": "Adjust the price of Love Tea (cooking recipe).",
+
+"config.Heart Melon Huangjiu Price.name": "Heart Melon Huangjiu Price",
+"config.Heart Melon Huangjiu Price.description": "Adjust the price of Heart Melon Huangjiu (artisan good).",
+
+"config.Giftable Tassel Price.name": "Giftable Tassel Price",
+"config.Giftable Tassel Price.description": "Adjust the cost of the Giftable Tassel recipe at the Volcano Shop. The Giftable Tassel will only be available with the NPC Pei Ming installed.",
+
+"config.Equippable Tassel Price.name": "Equippable Tassel Price",
+"config.Equippable Tassel Price.description": "Adjust the cost of the Equippable Tassel recipe at the Volcano Shop",
 
 }
