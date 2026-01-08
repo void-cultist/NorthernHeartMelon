@@ -1,5 +1,8 @@
 # Northern Heart Melon Custom Crop
 
+
+![alt text: banner in pastel pink and purple checkers. on the left hand side of the image the stardew valley farmer can be seen holding a heart shaped melon. to the right, a text saying 'northern heart melon a custom crop by voidcultist' can be read](./Images/NorthernHeartMelonBanner.png)
+
 This mod adds the new custom crop **Northern Heart Melon**. It is a mod that was made as companion mod to [NPC Pei Ming](placeholder) but can also be used as a standalone. In addition to the [crop itself](#northern-heart-melon), this mod adds the following recipes and goods:
 
 * [Glazed Heart Melon](#glazed-heart-melon)
