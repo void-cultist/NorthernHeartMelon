@@ -11,7 +11,7 @@ This mod adds the new custom crop **Northern Heart Melon**. It is a mod that was
 * [Equippable Tassel](#equippable-tassel)
 * [Heart Melon Huangjiu](#heart-melon-huangjiu)
 
-The following sections will talk about the items in detail as well as their unlock conditions for players __without__ the NPC Pei Ming installed. For players with NPC Pei Ming installed, please refer to this readme.
+The following sections will talk about the items in detail as well as their unlock conditions for players __without__ the NPC Pei Ming installed. For players with NPC Pei Ming installed, please refer to [this readme](github.com/void-cultist/PeiMingSDV).
 
 ## Northern Heart Melon
 
