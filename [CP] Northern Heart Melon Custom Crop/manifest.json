@@ -1,16 +1,16 @@
 {
   "Name": "Northern Heart Melon - a custom crop",
   "Author": "voidcultist",
-  "Version": "0.1.0",
-  "Description": "A special kind of fruit that is a delight for everyone you wish to get closer with.",
+  "Version": "1.0.0",
+  "Description": "Adds a new crop called 'Northern Heart Melon'. A special kind of fruit that is a delight for everyone you wish to get closer with.",
   "UniqueID": "void.NorthernHeartMelon",
-  "UpdateKeys": ["???"],
+  "UpdateKeys": [ "Nexus:40998", "GitHub:void-cultist/NorthernHeartMelon" ],
   "ContentPackFor": {
     "UniqueID": "Pathoschild.ContentPatcher"
   },
 "Dependencies": [
     {"UniqueID": "spacechase0.SpaceCore",
-  "IsRequired": true, },
+  "IsRequired": true },
 ]
   
 }

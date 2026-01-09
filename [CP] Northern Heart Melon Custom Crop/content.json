@@ -260,7 +260,7 @@
 		    "Action": "EditData",
 		    "Target":  "Data/Shops",
             "When": { "HasMod: |contains=void.peiming": true,
-            "HasReadLetter:AnyPlayer |contains={{ModID}}_NHMSeedsLetter": true },
+            "HasReadLetter:AnyPlayer |contains=void.peiming_NHMSeedsLetter": true },
             "TargetField": [
                 "DesertTrade",
                 "Items"
@@ -369,7 +369,7 @@
 
 //recipe for love tea and glazed heart melon at night market when PM is not installed
 { 
-        "LogName": "Make love tea recipe available for purchase at night market without NPC installed",
+        "LogName": "Make glazed heart melon recipe available for purchase at night market without NPC installed",
 		"Action": "EditData",
         "When": { "HasMod: |contains=void.peiming": false,
             
@@ -380,13 +380,13 @@
                 "Items"
             ],
             "Entries": {
-                    "{{ModId}}_LoveTeaRecipe": {
+                    "{{ModId}}_GlazedHeartMelonRecipe": {
                     
-                    "Id": "{{ModId}}_LoveTeaRecipe",
-                    "ItemId": "(O){{ModID}}_LoveTea",
+                    "Id": "{{ModId}}_GlazedHeartMelonRecipe",
+                    "ItemId": "(O){{ModID}}_GlazedHeartMelon",
                     "IsRecipe": true,
-                    "ObjectInternalName": "{{ModID}}_LoveTea",
-                    "Price": 250000,
+                    "ObjectInternalName": "{{ModID}}_GlazedHeartMelon",
+                    "Price": 125000,
                     
                     }
                 },
