@@ -51,84 +51,84 @@
 "DynamicTokens": [
     //NHM Price
     {
-        "Name": "Northern Heart Melon Price",
+        "Name": "Northern Heart Melon Price Token",
         "When": { "Northern Heart Melon Price": 1250 },
         "Value": 1250
     },
     {
-        "Name": "Northern Heart Melon Price",
+        "Name": "Northern Heart Melon Price Token",
         "When": { "Northern Heart Melon Price": 2500 },
         "Value": 2500
     },
     {
-        "Name": "Northern Heart Melon Price",
+        "Name": "Northern Heart Melon Price Token",
         "When": { "Northern Heart Melon Price": 5000 },
         "Value": 5000
     },
 
     //GlazedHM price
     {
-        "Name": "Glazed Heart Melon Price",
+        "Name": "Glazed Heart Melon Price Token",
         "When": { "Glazed Heart Melon Price": 3500 },
         "Value": 3500
     },
     {
-        "Name": "Glazed Heart Melon Price",
+        "Name": "Glazed Heart Melon Price Token",
         "When": { "Glazed Heart Melon Price": 5000 },
         "Value": 5000
     },
     {
-        "Name": "Glazed Heart Melon Price",
+        "Name": "Glazed Heart Melon Price Token",
         "When": { "Glazed Heart Melon Price": 7000 },
         "Value": 7000
     },
 
     //Love Tea price
      {
-        "Name": "Love Tea Price",
+        "Name": "Love Tea Price Token",
         "When": { "Love Tea Price": 5000 },
         "Value": 5000
     },
     {
-        "Name": "Love Tea Price",
+        "Name": "Love Tea Price Token",
         "When": { "Love Tea Price": 10000 },
         "Value": 10000
     },
     {
-        "Name": "Love Tea Price",
+        "Name": "Love Tea Price Token",
         "When": { "Love Tea Price": 15000 },
         "Value": 15000
     },
     //Giftable Tassel recipe cost
     {
-        "Name": "Giftable Tassel Price",
+        "Name": "Giftable Tassel Price Token",
         "When": { "Giftable Tassel Price": 250000 },
         "Value": 250000
     },
      {
-        "Name": "Giftable Tassel Price",
+        "Name": "Giftable Tassel Price Token",
         "When": { "Giftable Tassel Price": 500000 },
         "Value": 500000
     },
        {
-        "Name": "Giftable Tassel Price",
+        "Name": "Giftable Tassel Price Token",
         "When": { "Giftable Tassel Price": 750000 },
         "Value": 750000
     },
 
     //Equippable Tassel recipe cost
     {
-        "Name": "Equippable Tassel Price",
+        "Name": "Equippable Tassel Price Token",
         "When": { "Equippable Tassel Price": 125000 },
         "Value": 125000
     },
     {
-        "Name": "Equippable Tassel Price",
+        "Name": "Equippable Tassel Price Token",
         "When": { "Equippable Tassel Price": 250000 },
         "Value": 250000
     },
     {
-        "Name": "Equippable Tassel Price",
+        "Name": "Equippable Tassel Price Token",
         "When": { "Equippable Tassel Price": 500000 },
         "Value": 500000
     },
@@ -189,7 +189,7 @@
                     "Description": "{{i18n:NHMelon.Description}}",
                     "Type": "Basic",
                     "Category": -79,
-                    "Price": "{{Northern Heart Melon Price}}",   // Money earned when player sells it
+                    "Price": "{{Northern Heart Melon Price Token}}",   // Money earned when player sells it
                     "Edibility": 80,
                     "Texture": "{{ModId}}/objects",
                     "SpriteIndex": 1,
@@ -292,7 +292,7 @@
                     "Edibility": "120",
                     "Type": "Cooking",
                     "Category": -7,
-                    "Price": "{{Glazed Heart Melon Price}}",
+                    "Price": "{{Glazed Heart Melon Price Token}}",
                     "Texture": "{{ModId}}\\recipes",
                     "SpriteIndex": 0,
                     "ContextTags": [
@@ -323,7 +323,7 @@
                     "IsDrink": true,
                     "Type": "Cooking",
                     "Category": -7,
-                    "Price": "{{Love Tea Price}}",
+                    "Price": "{{Love Tea Price Token}}",
                     "Texture": "{{ModId}}\\recipes",
                     "SpriteIndex": 2,
                     "ContextTags": [
@@ -354,7 +354,7 @@
                     "IsDrink": true,
                     "Type": "Basic",
                     "Category": -26,
-                    "Price": "{{Heart Melon Huangjiu Price}}",
+                    "Price": "{{Heart Melon Huangjiu Price Token}}",
                     "Texture": "{{ModId}}\\recipes",
                     "SpriteIndex": 4,
                     "ContextTags": [
@@ -770,7 +770,7 @@
                     "ItemId": "(O){{ModID}}_GiftableTassel",
                     "IsRecipe": true,
                     "ObjectInternalName": "{{ModID}}_GiftableTassel",
-                    "Price": "{{Giftable Tassel Price}}",
+                    "Price": "{{Giftable Tassel Price Token}}",
                     
                     }
                 },
@@ -802,7 +802,7 @@
                     "ItemId": "(O){{ModID}}_EquippableTassel",
                     "IsRecipe": true,
                     "ObjectInternalName": "{{ModID}}_EquippableTassel",
-                    "Price": "{{Equippable Tassel Price}}",
+                    "Price": "{{Equippable Tassel Price Token}}",
                     
                     }
                 },
@@ -832,7 +832,7 @@
                     "ItemId": "(O){{ModID}}_EquippableTassel",
                     "IsRecipe": true,
                     "ObjectInternalName": "{{ModID}}_EquippableTassel",
-                    "Price": 500000,
+                    "Price": "{{Equippable Tassel Price Token}}",
                     
                     }
                 },
