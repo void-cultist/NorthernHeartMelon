@@ -1,8 +1,8 @@
 {
     "NHMSeedsName": "Northern Heart Melon seeds",
-    "NHMSeedsDescription": "Plant these in Winter to grow a Northern Heart Melon. Needs 20 days to grow.",
-    "NHMelon.DisplayName": "Northern Heart Melon",
+    "NHMSeedsDescription": "Plant these in Winter to grow a Northern Heart Melon. Needs {{NumberOfDays}} days to grow.", //do not translate "{{NumberOfDays}}" - keep it like that when translating
     "NHMelon.Description": "A very rare fruit from a deity's garden that is said to increase a person's fondness towards another.",
+    "NHMelon.DisplayName": "Northern Heart Melon",
     "GlazedHeartMelon.DisplayName": "Glazed Heart Melon",
     "GlazedHeartMelon.Description": "A sweet treat. Gifting it to someone shows that you really like them!",
     "LoveTea.DisplayName": "Love Tea",
@@ -18,6 +18,14 @@
     "HeartMelonHuangjiu.Description": "A type of traditional liquor brewed by mixing boiled grains such as rice, glutinous rice, or millet. This specific one has Northern Heart Melon added in, giving it a distinct flavor.",
     "HuangjiuMail.title": "How to make Huangjiu",
     "HuangjiuMail.text": "Hello, Farmer @! We of the Huangjiu Brewers' Association have been informed of your tremendous farming efforts and progress. As such, we would like to impart our knowledge on how to make Northern Heart Melon Huangjiu on you. Place a Northern Heart Melon in a keg in addition to 2 bags of unmilled rice. Why don't you give it a try?",
+    
+    ///New in 1.0.2
+    "sugarItem": "Sugar Item",
+    "teaItem": "Tea Item",
+    "flourItem": "Flour Item",
+    
+    "HeartMelonPastry.DisplayName": "Heart Melon Pastry",
+    "HeartMelonPastry.Description": "A sweet pastry with a jelly core made of Northern Heart Melons in the center.",
 
 //configs
 "config.Northern Heart Melon Price.name": "Northern Heart Melon Price",
@@ -37,5 +45,15 @@
 
 "config.Equippable Tassel Price.name": "Equippable Tassel Price",
 "config.Equippable Tassel Price.description": "Adjust the cost of the Equippable Tassel recipe at the Volcano Shop",
+
+//new configs in 1.0.2
+"config.Recipe Overrides.name": "Recipe Overrides",
+"config.Recipe Overrides.description": "Change the recipes in the mod to use food categories as ingredients rather than a fixed type of item.",
+
+"config.Growth Time.name": "Growth Time",
+"config.Growth Time.description": "Change the time it takes for the Northern Heart Melon plant to grow.",
+"config.Growth Time.values.short": "short",
+"config.Growth Time.values.standard": "standard",
+"config.Growth Time.values.long": "long",
 
 }

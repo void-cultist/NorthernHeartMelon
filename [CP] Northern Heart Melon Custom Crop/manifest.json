@@ -1,7 +1,7 @@
 {
   "Name": "Northern Heart Melon - a custom crop",
   "Author": "voidcultist",
-  "Version": "1.0.0",
+  "Version": "1.0.1",
   "Description": "Adds a new crop called 'Northern Heart Melon'. A special kind of fruit that is a delight for everyone you wish to get closer with.",
   "UniqueID": "void.NorthernHeartMelon",
   "UpdateKeys": [ "Nexus:40998", "GitHub:void-cultist/NorthernHeartMelon" ],

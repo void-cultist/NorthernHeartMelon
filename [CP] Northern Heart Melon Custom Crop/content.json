@@ -1,4 +1,4 @@
-{ "Format": "2.8.0",
+{ "Format": "2.9.0",
 // NEED TRIGGER ACTIONS FOR RECIPE UNLOCK!!!!
 //add config options!!!!
 "ConfigSchema": {
@@ -44,11 +44,45 @@
         "AllowBlank": false,
         "Description": "Adjust the cost of the Equippable Tassel recipe at the Volcano Shop"
     },
+    "Recipe Overrides":
+    {
+        "AllowValues": "true, false",
+        "Default": true,
+        "AllowBlank": false,
+        "Description": "Change some parts of the recipes in the mod to use food categories as ingredients rather than a fixed type of item. Enables compatibility with other mods such as Cornucopia."
+    },
+    "Growth Time":
+    {
+        "AllowValues": "short, standard, long",
+        "Default": "standard",
+        "AllowBlank": false,
+        "Description": "Change the time it takes for the Northern Heart Melon plant to grow." 
+
+    }
+
 
 
 },
 
 "DynamicTokens": [
+    //Growth Time
+
+    {
+        "Name": "NumberOfDays",
+        "When": { "Growth Time": "standard" },
+        "Value": 20 
+    },
+    {
+        "Name": "NumberOfDays",
+        "When": { "Growth Time": "short" },
+        "Value": 13 
+    },
+    {
+        "Name": "NumberOfDays",
+        "When": { "Growth Time": "long" },
+        "Value": 25 
+    },
+
     //NHM Price
     {
         "Name": "Northern Heart Melon Price Token",
@@ -99,6 +133,24 @@
         "When": { "Love Tea Price": 15000 },
         "Value": 15000
     },
+
+    //Heart Melon Huangjiu Price
+    {
+        "Name": "Heart Melon Huangjiu Price Token",
+        "When": { "Heart Melon Huangjiu Price": 4000 },
+        "Value": 4000
+    },
+    {
+        "Name": "Heart Melon Huangjiu Price Token",
+        "When": { "Heart Melon Huangjiu Price": 8000 },
+        "Value": 8000
+    },
+    {
+        "Name": "Heart Melon Huangjiu Price Token",
+        "When": { "Heart Melon Huangjiu Price": 12000 },
+        "Value": 12000
+    },
+    
     //Giftable Tassel recipe cost
     {
         "Name": "Giftable Tassel Price Token",
@@ -137,16 +189,22 @@
 
 "Changes": 
 [
+
+////Includes
+
+{
+    "LogName": "Include recipe overrides (Space Core)",
+    "When": { "Recipe Overrides": true },
+    "Action": "Include",
+    "FromFile": "Overrides.json",
+},
 //texture load
         { 
 			"LogName": "Load textures for custom crop and recipes",
             "Action": "Load",
             "Target": "{{ModId}}/objects, {{ModId}}/crops, {{ModId}}/recipes",
-            //Target is the custom texture name to use. This needs to be unique between mods, so it is highly recommended to include your *unique mod Id* as part of the path. Texture name can be anything
-            //You can also include multiple items or crops on the same spritesheet.
             "FromFile": "assets/{{TargetWithoutPath}}.png"
-            //Using {{TargetWithoutPath}} automatically pulls from the .png image with the same name as the texture
-            //In this case, "assets/objects.png" and "assets/crops.png". You can use any folder name as long as your image and code match.
+            
         },
   
 
@@ -175,7 +233,7 @@
                 "{{ModId}}_NHMSeeds": {
                     "Name": "{{ModId}}_NHMSeeds",
                     "Displayname": "{{i18n:NHMSeedsName}}",
-                    "Description": "{{i18n:NHMSeedsDescription}}",
+                    "Description": "{{i18n:NHMSeedsDescription |NumberOfDays={{NumberOfDays}}}}",
                     "Type": "Seeds",
                     "Category": -74, //crop seeds must be category -74 to plant crops
                     "Price": 250,
@@ -203,22 +261,64 @@
 		{	
             "LogName": "Add in the crop/Plant",
             "Action": "EditData",
+            "When": { "Growth Time": "standard" },
             "Target": "Data/Crops",
             "Entries": {
                 "{{ModId}}_NHMSeeds": { //this must EXACTLY match the item id of your seeds item
                     "Seasons": [
                         "winter",
                     ],
-                    // The crop has 5 phases that each takes 1 day, making it 5 total days to harvest
-                    "DaysInPhase": [ // First two seed sprites on the crop image are not counted as a phase, instead they are seed variants
-                        2,
-                        3,
-                        5,
-                        5,
-                        5
+                    "DaysInPhase": 
+                       [ 2, 3, 5, 5, 5 ],
+                    "RegrowDays": -1,
+                    "HarvestMinStack": 1,
+                    "HarvestMaxStack": 1,
+                    "HarvestItemId": "{{ModId}}_NHMelon",
+                    "Texture": "{{ModId}}/crops",
+                    "SpriteIndex": 0,
+                    "CountForMonoculture": true,
+                    "CountForPolyculture": true,
+                }
+            }
+        },
+
+        	{	
+            "LogName": "Add in the crop/Plant",
+            "Action": "EditData",
+            "When": { "Growth Time": "short" },
+            "Target": "Data/Crops",
+            "Entries": {
+                "{{ModId}}_NHMSeeds": { 
+                    "Seasons": [
+                        "winter",
                     ],
-                    // For this example, we made a regrowable crop. Non regrowable crops use -1 in this field
-					// Regrowing crops show the second to last sprite when they have produce, and the final sprite when they are regrowing
+                    "DaysInPhase": 
+                       [ 2, 2, 3, 3, 3 ],
+                    "RegrowDays": -1,
+                    "HarvestMinStack": 1,
+                    "HarvestMaxStack": 1,
+                    "HarvestItemId": "{{ModId}}_NHMelon",
+                    "Texture": "{{ModId}}/crops",
+                    "SpriteIndex": 0,
+                    "CountForMonoculture": true,
+                    "CountForPolyculture": true,
+                }
+            }
+        },
+
+        
+        	{	
+            "LogName": "Add in the crop/Plant",
+            "Action": "EditData",
+            "When": { "Growth Time": "long" },
+            "Target": "Data/Crops",
+            "Entries": {
+                "{{ModId}}_NHMSeeds": { 
+                    "Seasons": [
+                        "winter",
+                    ],
+                    "DaysInPhase": 
+                       [ 5, 5, 5, 5, 5 ],
                     "RegrowDays": -1,
                     "HarvestMinStack": 1,
                     "HarvestMaxStack": 1,
@@ -237,7 +337,7 @@
 		    "Action": "EditData",
 		    "Target":  "Data/Shops",
             "When": { "HasMod: |contains=void.peiming": false },
-            // Since Carpenter is an existing shop, we need to avoid overwriting the entire entry and only add 1 new item
+           
             "TargetField": [
                 "DesertTrade",
                 "Items"
@@ -366,6 +466,41 @@
                 }
             }
         },
+        {
+            "LogName": "Add object: Heart Melon Pastry",
+            "Action": "EditData",
+            "Target": "Data/Objects",
+            "Entries": {
+                "{{ModID}}_HeartMelonPastry": {
+                 
+                        "Name": "{{ModID}}_Heart Melon Pastry",
+                        "DisplayName": "{{i18n:HeartMelonPastry.DisplayName}}",
+                        "Description": "{{i18n:HeartMelonPastry.Description}}",
+                        "Type": "Cooking",
+                        "Category": -7,
+                        "Price": 1000, 
+                        "Texture": "{{ModID}}\\recipes", 
+                        "SpriteIndex": 4, 
+                        "Edibility": 55,
+                        "IsDrink": false,
+                        "ContextTags": [ "color_pink", "food_sweet", "pastry_item" ],
+                           "Buffs": [
+                                {
+                                    "Id": "{{ModID}}_PastryBuff",
+                                    "Duration": 1000,
+                                    "CustomAttributes": {
+                    "LuckLevel": 2.0,
+                    "MiningLevel": 2.0,
+                    "Defense": 2
+                                        },
+                                    "IsDebuff": false,
+                                }
+                           ]
+                        },
+                       
+                
+            }
+        },
 
 //recipe for love tea and glazed heart melon at night market when PM is not installed
 { 
@@ -448,14 +583,14 @@
        
 },
 },
-
- { //////////COOKING RECIPES
+//////////COOKING RECIPES
+ { 
 
     "LogName": "Create Glazed Heart Melon recipe",
       "Action": "EditData",
       "Target": "Data/CookingRecipes",
       "Entries": {
-		"{{ModID}}_GlazedHeartMelon": "(O){{ModID}}_NHMelon 1 (O)245 2 (O)417 1 (O)724 1/10 10/{{ModID}}_GlazedHeartMelon 1/null/Glazed Heart Melon/",
+		"{{ModID}}_GlazedHeartMelon": "(O){{ModID}}_NHMelon 1 (O)245 2 (O)417 1 (O)724 1/10 10/{{ModID}}_GlazedHeartMelon 1/null{{i18n:GlazedHeartMelon.DisplayName}}/",
       }
     },
       {
@@ -464,7 +599,16 @@
       "Action": "EditData",
       "Target": "Data/CookingRecipes",
       "Entries": {
-		"{{ModID}}_LoveTea": "(O){{ModID}}_NHMelon 1 (O)417 1 (O)614 1 (O)454 3/10 10/{{ModID}}_LoveTea 1/null/Love Tea/",
+		"{{ModID}}_LoveTea": "(O){{ModID}}_NHMelon 1 (O)417 1 (O)614 1 (O)454 3/10 10/{{ModID}}_LoveTea 1/null/{{i18n:LoveTea.DisplayName}}/",
+      }
+    },
+        {
+
+    "LogName": "Heart Melon Pastry recipe",
+      "Action": "EditData",
+      "Target": "Data/CookingRecipes",
+      "Entries": {
+		"{{ModID}}_HeartMelonPastry": "(O){{ModID}}_NHMelon 1 (O)246 1 (O)245 1/10 10/{{ModID}}_HeartMelonPastry 1/null/{{i18n:HeartMelonPastry.DisplayName}}/",
       }
     },
 
@@ -513,9 +657,10 @@
 				}
 			},
 			"MoveEntries": [
-				{
-					"Id": "{{ModId}}_HeartMelonHuangjiu",
-					"BeforeId": "Default_Juice"
+				{ 
+                    "BeforeId": "Default_Juice",
+                    "Id": "{{ModId}}_HeartMelonHuangjiu",
+
 				}
 			]
 		},
