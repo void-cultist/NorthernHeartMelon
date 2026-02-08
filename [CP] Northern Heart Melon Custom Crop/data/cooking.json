@@ -1,0 +1,49 @@
+{
+    "Changes": [
+         { 
+
+    "LogName": "Create Glazed Heart Melon recipe",
+      "Action": "EditData",
+      "Target": "Data/CookingRecipes",
+      "Entries": {
+		"{{ModID}}_GlazedHeartMelon": "(O){{ModID}}_NHMelon 1 (O)245 2 (O)417 1 (O)724 1/10 10/{{ModID}}_GlazedHeartMelon 1/null{{i18n:GlazedHeartMelon.DisplayName}}/",
+      }
+    },
+      {
+
+    "LogName": "Create Love Tea recipe",
+      "Action": "EditData",
+      "Target": "Data/CookingRecipes",
+      "Entries": {
+		"{{ModID}}_LoveTea": "(O){{ModID}}_NHMelon 1 (O)417 1 (O)614 1 (O)454 3/10 10/{{ModID}}_LoveTea 1/null/{{i18n:LoveTea.DisplayName}}/",
+      }
+    },
+        {
+
+    "LogName": "Heart Melon Pastry recipe",
+      "Action": "EditData",
+      "Target": "Data/CookingRecipes",
+      "Entries": {
+		"{{ModID}}_HeartMelonPastry": "(O){{ModID}}_HeartMelonSyrup 1 (O)246 1 (O)245 1/10 10/{{ModID}}_HeartMelonPastry 1/null/{{i18n:HeartMelonPastry.DisplayName}}/",
+      }
+    },
+
+    {
+      "LogName": "Heart Melon Donut recipe",
+      "Action": "EditData",
+      "Target": "Data/CookingRecipes",
+      "Entries": {
+        "{{ModID}}_HeartMelonDonut": "(O){{ModID}}_HeartMelonSyrup 1 (O)246 1 (O)/10 10/{{ModID}}_HeartMelonDonut 1/null/{{i18n:HeartMelonDonut.DisplayName}}/"
+      }
+    },
+
+     {
+      "LogName": "Heart Melon Candy recipe",
+      "Action": "EditData",
+      "Target": "Data/CookingRecipes",
+      "Entries": {
+        "{{ModID}}_HeartMelonCandy": "(O){{ModID}}_HeartMelonSyrup 2 (O)245 1 (O)340 1/10 10/{{ModID}}_HeartMelonCandy 3/null/{{i18n:HeartMelonCandy.DisplayName}}/"
+      }
+    },
+    ]
+}

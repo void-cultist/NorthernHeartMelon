@@ -1,0 +1,151 @@
+{
+    "Changes": [
+        		  { //With NPC Pei Ming installed
+            "LogName": "Make seeds available for purchase",
+		    "Action": "EditData",
+		    "Target":  "Data/Shops",
+            "When": { "HasMod: |contains=void.peiming": true,
+            "HasReadLetter:AnyPlayer |contains=void.peiming_NHMSeedsLetter": true },
+            "TargetField": [
+                "DesertTrade",
+                "Items"
+            ],
+            "Entries": {
+
+                "{{ModId}}_NHMSeeds": {
+                    "Id": "{{ModId}}_NHMSeeds",
+                    "ItemId": "{{ModId}}_NHMSeeds",
+					"TradeItemId": "(O)74",
+					"TradeItemAmount": "3",
+					"AvailableStock": "2",
+                }
+            },     
+            
+		},
+
+        { //Giftable Tassel recipe purchase (only with pei ming installed)
+        "LogName": "Make giftable tassel recipe available for purchase",
+		"Action": "EditData",
+        "When": { 
+            "HasMod: |contains=void.peiming": true,
+            "Hearts:void.peiming_Peiming": "8, 9, 10, 11, 12, 13, 14",
+            "FarmhouseUpgrade": "1,2,3"
+     },
+		"Target":  "Data/Shops",
+            "TargetField": [
+                "VolcanoShop",
+                "Items"
+            ],
+            "Entries": {
+                    "{{ModId}}_GiftableTasselRecipe": {
+                    
+                    "Id": "{{ModId}}_GiftableTasselRecipe",
+                    "ItemId": "(O){{ModID}}_GiftableTassel",
+                    "IsRecipe": true,
+                    "ObjectInternalName": "{{ModID}}_GiftableTassel",
+                    "Price": "{{Giftable Tassel Price Token}}",
+                    
+                    }
+                },
+                "MoveEntries": [
+                    {
+                    "ID": "{{ModId}}_EquippableTasselRecipe",
+                    "ToPosition": "Top"
+                    } ]
+
+},
+
+{ //equippable tassel recipe purchase with NPC Pei Ming installed
+        "LogName": "Make equippable tassel recipe available for purchase(Pei Ming installed)",
+		"Action": "EditData",
+        "When": { 
+            "HasMod: |contains=void.peiming": true,
+            "HasSeenEvent": "void.peiming_RoommateProposal",
+            "HasCraftingRecipe": "{{ModID}}_GiftableTasselRecipe",
+     },
+		"Target":  "Data/Shops",
+            "TargetField": [
+                "VolcanoShop",
+                "Items"
+            ],
+            "Entries": {
+                    "{{ModId}}_EquippableTasselRecipe": {
+                    
+                    "Id": "{{ModId}}_EquippableTasselRecipe",
+                    "ItemId": "(O){{ModID}}_EquippableTassel",
+                    "IsRecipe": true,
+                    "ObjectInternalName": "{{ModID}}_EquippableTassel",
+                    "Price": "{{Equippable Tassel Price Token}}",
+                    
+                    }
+                },
+                "MoveEntries": [
+                    {
+                    "ID": "{{ModId}}_EquippableTasselRecipe",
+                    "ToPosition": "Top"
+                    } ]
+
+},
+
+
+{ //NHM pastries purchasable at Saloon
+        "LogName": "NHM Saloon Edit",
+		"Action": "EditData",
+        "When": { 
+            "HasReadLetter: anyPlayer": "{{ModID}}_GusQuestCompleteMail"
+     },
+		"Target":  "Data/Shops",
+            "TargetField": [
+                "Saloon",
+                "Items"
+            ],
+            "Entries": {
+                    "{{ModId}}_HeartMelonPastry": {
+                    
+                    "Id": "{{ModId}}_HeartMelonPastry",
+                    "ItemId": "(O){{ModID}}_HeartMelonPastry",
+                    "IsRecipe": false,
+                    "ObjectInternalName": "{{ModID}}_HeartMelonPastry",
+                    "Price": "{{Round: {{query:  {{Northern Heart Melon Price Token}} + 700 }} }}",
+                    
+                    },
+
+                     "{{ModId}}_HeartMelonDonut": {
+                    
+                    "Id": "{{ModId}}_HeartMelonDonut",
+                    "ItemId": "(O){{ModID}}_HeartMelonDonut",
+                    "IsRecipe": false,
+                    "ObjectInternalName": "{{ModID}}_HeartMelonDonut",
+                    "Price": "{{Round: {{query:  {{Northern Heart Melon Price Token}} + 1200 }} }}",
+                    
+                    },
+                    "{{ModId}}_HeartMelonDonutRecipe": {
+                    
+                    "Id": "{{ModId}}_HeartMelonDonutRecipe",
+                    "ItemId": "(O){{ModID}}_HeartMelonDonut",
+                    "IsRecipe": true,
+                    "ObjectInternalName": "{{ModID}}_HeartMelonDonut",
+                    "Price": "{{Round: {{query:  {{Northern Heart Melon Price Token}} * 2 }} }}",
+                    
+                    },
+                    "{{ModId}}_HeartMelonCandy": {
+                    
+                    "Id": "{{ModId}}_HeartMelonCandy",
+                    "ItemId": "(O){{ModID}}_HeartMelonCandy",
+                    "IsRecipe": false,
+                    "ObjectInternalName": "{{ModID}}_HeartMelonCandy",
+                    "Price": "{{Round: {{query:  {{Northern Heart Melon Price Token}} * 1.5 }} }}",
+                    
+                    },
+                },
+            "MoveEntries": [
+                    {
+                    "ID": "{{ModId}}_HeartMelonPastry",
+                    "ToPosition": "Bottom"
+                    } 
+                ]
+
+}
+
+    ]
+}

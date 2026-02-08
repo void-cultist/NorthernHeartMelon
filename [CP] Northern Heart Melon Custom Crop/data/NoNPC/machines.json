@@ -1,0 +1,107 @@
+{
+    "Changes": [ ///needs fix: produces huangjiu even without letter and without using unmilled rice
+        {
+            "LogName": "Add machine Output: Heart Melon Huangjiu - without Pei Ming installed",
+			"Action": "EditData",
+            "When": { "HasMod: |contains=void.peiming": false},
+			"Target": "Data/Machines",
+			"TargetField": [
+				"(BC)12",
+				"OutputRules"
+			],
+			"Entries": {
+				"{{ModId}}_HeartMelonHuangjiu": {
+					"Id": "{{ModId}}_HeartMelonHuangjiu",
+					"Triggers": [
+						{
+							"RequiredItemId": "(O){{ModID}}_NHMelon",
+							"RequiredCount": 1,
+                            "Condition": "PLAYER_HAS_MAIL Current {{ModID}}_HuangjiuMail Received, PLAYER_HAS_ITEM Current (O)271 2"
+						}
+                        	
+					],
+					"OutputItem": [
+						{
+							"ItemId": "(O){{ModID}}_HeartMelonHuangjiu",
+							"ObjectInternalName": "{0} HeartMelonHuangjiu",
+							"ObjectDisplayName": "{{i18n:HeartMelonHuangjiu.DisplayName}}",
+							"PreserveId": "",
+							"CopyPrice": true,
+							"PriceModifiers": [
+								{
+									"Modification": "Multiply",
+									"Amount": 7
+								},
+							]
+						}
+					],
+					"DaysUntilReady": 3,
+					"AdditionalConsumedItems":
+                    {
+							"RequiredItemId": "(O)271",
+							"RequiredCount": 2
+						}
+				}
+			},
+			"MoveEntries": [
+				{
+					"Id": "{{ModId}}_HeartMelonHuangjiu",
+					"BeforeId": "Default_Juice"
+				}
+			]
+		},
+
+		{
+            "LogName": "Add machine Output: Heart Melon Syrup - without Pei Ming installed",
+			"Action": "EditData",
+            "When": { "HasMod: |contains=void.peiming": false},
+			"Target": "Data/Machines",
+			"TargetField": [
+				"(BC)15",
+				"OutputRules"
+			],
+			"Entries": {
+				"{{ModId}}_HeartMelonSyrup": {
+					"Id": "{{ModId}}_HeartMelonSyrup",
+					"Triggers": [
+						{
+							"RequiredItemId": "(O){{ModID}}_NHMelon",
+							"RequiredCount": 2,
+                          
+						},
+                        	
+					],
+					"OutputItem": [
+						{
+							"ItemId": "(O){{ModID}}_HeartMelonSyrup",
+							"ObjectInternalName": "{0} HeartMelonSyrup",
+							"ObjectDisplayName": "{{i18n:HeartMelonSyrup.DisplayName}}",
+							"PreserveId": "",
+							"CopyPrice": true,
+							"PriceModifiers": [
+								{
+									"Modification": "Multiply",
+									"Amount": 2
+								}
+							]
+						}
+					],
+					"MinutesUntilReady": 6000,
+					"AdditionalConsumedItems":
+                    {
+							"RequiredItemId": "(O)245",
+							"RequiredCount": 1
+						}
+					
+					
+				}
+			},
+			"MoveEntries": [
+				{
+					"Id": "{{ModId}}_HeartMelonSyrup",
+					"BeforeId": "Default_Pickled"
+				}
+			]
+		}
+    ]
+}

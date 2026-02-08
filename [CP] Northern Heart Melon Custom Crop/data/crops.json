@@ -1,0 +1,76 @@
+{
+    "Changes": [
+        {	
+            "LogName": "Add in Northern Heart Melon crop - standard growth time",
+            "Action": "EditData",
+            "When": { "Growth Time": "standard" },
+            "Target": "Data/Crops",
+            "Entries": {
+                "{{ModId}}_NHMSeeds": { //this must EXACTLY match the item id of your seeds item
+                    "Seasons": [
+                        "winter",
+                    ],
+                    "DaysInPhase": 
+                       [ 2, 3, 5, 5, 5 ],
+                    "RegrowDays": -1,
+                    "HarvestMinStack": 1,
+                    "HarvestMaxStack": 1,
+                    "HarvestItemId": "{{ModId}}_NHMelon",
+                    "Texture": "{{ModId}}/crops",
+                    "SpriteIndex": 0,
+                    "CountForMonoculture": true,
+                    "CountForPolyculture": true,
+                }
+            }
+        },
+
+        	{	
+            "LogName": "Add in Northern Heart Melon crop - short growth time",
+            "Action": "EditData",
+            "When": { "Growth Time": "short" },
+            "Target": "Data/Crops",
+            "Entries": {
+                "{{ModId}}_NHMSeeds": { 
+                    "Seasons": [
+                        "winter",
+                    ],
+                    "DaysInPhase": 
+                       [ 2, 2, 3, 3, 3 ],
+                    "RegrowDays": -1,
+                    "HarvestMinStack": 1,
+                    "HarvestMaxStack": 1,
+                    "HarvestItemId": "{{ModId}}_NHMelon",
+                    "Texture": "{{ModId}}/crops",
+                    "SpriteIndex": 0,
+                    "CountForMonoculture": true,
+                    "CountForPolyculture": true,
+                }
+            }
+        },
+
+        
+        	{	
+            "LogName": "Add in Northern Heart Melon crop - long growth time",
+            "Action": "EditData",
+            "When": { "Growth Time": "long" },
+            "Target": "Data/Crops",
+            "Entries": {
+                "{{ModId}}_NHMSeeds": { 
+                    "Seasons": [
+                        "winter",
+                    ],
+                    "DaysInPhase": 
+                       [ 5, 5, 5, 5, 5 ],
+                    "RegrowDays": -1,
+                    "HarvestMinStack": 1,
+                    "HarvestMaxStack": 1,
+                    "HarvestItemId": "{{ModId}}_NHMelon",
+                    "Texture": "{{ModId}}/crops",
+                    "SpriteIndex": 0,
+                    "CountForMonoculture": true,
+                    "CountForPolyculture": true,
+                }
+            }
+        },
+    ]
+}

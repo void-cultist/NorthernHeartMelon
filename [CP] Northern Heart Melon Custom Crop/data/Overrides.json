@@ -1,0 +1,237 @@
+{
+    "Changes": [
+        
+        {
+        "LogName": "Space Core cooking recipe overrides",
+        "Action": "EditData",
+        "Target": "spacechase0.SpaceCore/CookingRecipeOverrides",
+        "Entries": 
+        {
+
+        "{{ModID}}_GlazedHeartMelon": 
+            {
+            "ProductQualifiedId": "(O){{ModID}}_GlazedHeartMelon", //or vanilla dish
+            "ProductAmount": 1,
+            "Ingredients": 
+                [
+                    {
+                            "Type": "Item",
+                            "Value": "(O){{ModID}}_NHMelon",
+                            "Amount": 1,
+                    },
+                    {
+                            "Type": "ContextTag",
+                            "Value": "sugar_item",
+                            "Amount": 2,
+                            "OverrideText": "{{i18n:sugarItem}}",
+                            "OverrideTexturePath": "Maps/springobjects", 
+                            "OverrideTextureRect": 
+                            { 
+                                        "X": 80,
+                                        "Y": 160,
+                                        "Width": 16,
+                                        "Height": 16
+                            },
+                    },
+                    {
+                                "Type": "Item",
+                                "Value": "(O)417",
+                                "Amount": 1
+                    },
+                    {
+                                "Type": "Item",
+                                "Value": "(O)724",
+                                "Amount": 1
+                    },
+                 ]
+            },
+        
+        
+        "{{ModID}}_LoveTea": 
+        {
+            "ProductQualifiedId": "(O){{ModID}}_LoveTea", //or vanilla dish
+            "ProductAmount": 1,
+            "Ingredients": 
+                [
+                    {
+                            "Type": "Item",
+                            "Value": "(O){{ModID}}_NHMelon",
+                            "Amount": 1,
+                    },
+                    {
+                            "Type": "ContextTag",
+                            "Value": "tea_item",
+                            "Amount": 3,
+                            "OverrideText": "{{i18n:teaItem}}",
+                            "OverrideTexturePath": "Maps/springobjects", 
+                            "OverrideTextureRect": 
+                            { 
+                                        "X": 240,
+                                        "Y": 400,
+                                        "Width": 16,
+                                        "Height": 16
+                            },
+                    },
+                    {
+                                "Type": "Item",
+                                "Value": "(O)417",
+                                "Amount": 1
+                    },
+                    {
+                                "Type": "Item",
+                                "Value": "(O)724",
+                                "Amount": 1
+                    },
+                 ]
+            },
+
+         "{{ModID}}_HeartMelonPastry": 
+        {
+            "ProductQualifiedId": "(O){{ModID}}_HeartMelonPastry", 
+            "ProductAmount": 1,
+            "Ingredients": 
+                [
+                    {
+                            "Type": "Item",
+                            "Value": "(O){{ModID}}_HeartMelonSyrup",
+                            "Amount": 1,
+                    },
+                    {
+                            "Type": "ContextTag",
+                            "Value": "sugar_item",
+                            "Amount": 1,
+                            "OverrideText": "{{i18n:sugarItem}}",
+                            "OverrideTexturePath": "Maps/springobjects", 
+                            "OverrideTextureRect": 
+                            { 
+                                        "X": 80,
+                                        "Y": 160,
+                                        "Width": 16,
+                                        "Height": 16
+                            },
+                    },
+                 {
+                            "Type": "ContextTag",
+                            "Value": "flour_item",
+                            "Amount": 1,
+                            "OverrideText": "{{i18n:flourItem}}",
+                            "OverrideTexturePath": "Maps/springobjects", 
+                            "OverrideTextureRect": 
+                            { 
+                                        "X": 96,
+                                        "Y": 160,
+                                        "Width": 16,
+                                        "Height": 16
+                            },
+                    },
+                 ]
+            },
+
+        "{{ModID}}_HeartMelonDonut": 
+        {
+            "ProductQualifiedId": "(O){{ModID}}_HeartMelonDonut", 
+            "ProductAmount": 1,
+            "Ingredients": 
+                [
+                    {
+                            "Type": "Item",
+                            "Value": "(O){{ModID}}_HeartMelonSyrup",
+                            "Amount": 1,
+                    },
+    
+                 {
+                            "Type": "ContextTag",
+                            "Value": "flour_item",
+                            "Amount": 1,
+                            "OverrideText": "{{i18n:sugarItem}}",
+                            "OverrideTexturePath": "Maps/springobjects", 
+                            "OverrideTextureRect": 
+                            { 
+                                        "X": 96,
+                                        "Y": 160,
+                                        "Width": 16,
+                                        "Height": 16
+                            },
+                    },
+                 ]
+            },
+
+        "{{ModID}}_HeartMelonCandy": 
+        {
+            "ProductQualifiedId": "(O){{ModID}}_HeartMelonCandy", 
+            "ProductAmount": 3,
+            "Ingredients": 
+                [
+                    {
+                            "Type": "Item",
+                            "Value": "(O){{ModID}}_HeartMelonSyrup",
+                            "Amount": 2
+                    },
+                     {
+                            "Type": "ContextTag",
+                            "Value": "sugar_item",
+                            "Amount": 1,
+                            "OverrideText": "{{i18n:sugarItem}}",
+                            "OverrideTexturePath": "Maps/springobjects", 
+                            "OverrideTextureRect": 
+                            { 
+                                        "X": 80,
+                                        "Y": 160,
+                                        "Width": 16,
+                                        "Height": 16
+                            },
+                    },
+                    {
+                        "Type": "ContextTag",
+                        "Value": "honey_item",
+                        "Amount": 1,
+                        "OverrideText": "{{i18n:honeyItem}}",
+                        "OverrideTexturePath": "Maps/springobjects",
+                        "OverrideTextureRect": {
+                                        "X": 64,
+                                        "Y": 224,
+                                        "Width": 16,
+                                        "Height": 16
+                        }
+                    }
+    
+                 ]
+            }
+
+        }
+        },
+
+
+{
+    "LogName": "Edit  green tea's context tags",
+    "Action": "EditData",
+    "Target": "Data/Objects",
+    "TargetField": [ "614", "ContextTags" ],
+    "Entries": {
+        "-#1": "tea_item"
+    }
+},
+
+{
+    "LogName": "Edit sugar's context tags",
+    "Action": "EditData",
+    "Target": "Data/Objects",
+    "TargetField": [ "245", "ContextTags" ],
+    "Entries": {
+        "-#1": "sugar_item"
+    }
+},
+
+{
+    "LogName": "Edit flour's context tags",
+    "Action": "EditData",
+    "Target": "Data/Objects",
+    "TargetField": [ "246", "ContextTags" ],
+    "Entries": {
+        "-#1": "flour_item"
+    }
+},
+
+        
+    ]
+}

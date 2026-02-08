@@ -14,7 +14,7 @@
     "GiftedToNotOnAllowListMessage": "I am sorry, this isn't really what I like. Why don't you make use of it yourself?",
     "HeartMelonBuff": "Heart Melon Buff",
     "MagentaTasselBuff": "Magenta Tassel buff",
-    "HeartMelonHuangjiu.DisplayName": "Heart Melon Huanjiu",
+    "HeartMelonHuangjiu.DisplayName": "Heart Melon Huangjiu",
     "HeartMelonHuangjiu.Description": "A type of traditional liquor brewed by mixing boiled grains such as rice, glutinous rice, or millet. This specific one has Northern Heart Melon added in, giving it a distinct flavor.",
     "HuangjiuMail.title": "How to make Huangjiu",
     "HuangjiuMail.text": "Hello, Farmer @! We of the Huangjiu Brewers' Association have been informed of your tremendous farming efforts and progress. As such, we would like to impart our knowledge on how to make Northern Heart Melon Huangjiu on you. Place a Northern Heart Melon in a keg in addition to 2 bags of unmilled rice. Why don't you give it a try?",
@@ -23,9 +23,19 @@
     "sugarItem": "Sugar Item",
     "teaItem": "Tea Item",
     "flourItem": "Flour Item",
+    "honeyItem": "Honey Item",
     
     "HeartMelonPastry.DisplayName": "Heart Melon Pastry",
     "HeartMelonPastry.Description": "A sweet pastry with a jelly core made of Northern Heart Melons in the center.",
+
+    "HeartMelonDonut.DisplayName": "Heart Melon Donut",
+    "HeartMelonDonut.Description": "A reinterpretation of the beloved classic pastry, using the unique Northern Heart Melon to bring out the sweetest of flavors.",
+
+    "HeartMelonCandy.DisplayName": "Heart Melon Candy",
+    "HeartMelonCandy.Description": "Not too nutritious but sooo addicting!",
+
+    "HeartMelonSyrup.DisplayName": "Heart Melon Syrup",
+    "HeartMelonSyrup.Description": "A very sweet syrup made from extracting the juice of the Northern Heart Melon and letting it stir for a while. Can be used as a replacement for sugar.",
 
 //configs
 "config.Northern Heart Melon Price.name": "Northern Heart Melon Price",

@@ -1,0 +1,56 @@
+{
+    "Changes": [
+        {
+            "LogName": "Add machine Output: Heart Melon Huangjiu - Pei Ming installed",
+			"Action": "EditData",
+            "When": { "HasMod: |contains=void.peiming": true},
+			"Target": "Data/Machines",
+			"TargetField": [
+				"(BC)12",
+				"OutputRules"
+			],
+			"Entries": {
+				"{{ModId}}_HeartMelonHuangjiu": {
+					"Id": "{{ModId}}_HeartMelonHuangjiu",
+					"Triggers": [
+						{
+							"RequiredItemId": "(O){{ModID}}_NHMelon",
+							"RequiredCount": 1,
+                            "Condition": "PLAYER_HAS_MAIL Current void.peiming_HuangjiuLetter Received"
+						},
+                        	
+					],
+					"OutputItem": [
+						{
+							"ItemId": "(O){{ModID}}_HeartMelonHuangjiu",
+							"ObjectInternalName": "{0} HeartMelonHuangjiu",
+							"ObjectDisplayName": "Heart Melon Huangjiu",
+							"PreserveId": "",
+							"CopyPrice": true,
+							"PriceModifiers": [
+								{
+									"Modification": "Multiply",
+									"Amount": 7
+								},
+							]
+						}
+					],
+					"DaysUntilReady": 3,
+					"AdditionalConsumedItems":
+                    {
+							"RequiredItemId": "(O)271",
+							"RequiredCount": 2,
+						},
+				}
+			},
+			"MoveEntries": [
+				{ 
+                    "BeforeId": "Default_Juice",
+                    "Id": "{{ModId}}_HeartMelonHuangjiu",
+
+				}
+			]
+		}
+
+    ]
+}

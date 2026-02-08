@@ -1,0 +1,23 @@
+{
+    "Changes": [
+             {
+
+    "LogName": "Create equippable Magenta Tassel recipe",
+    "Action": "EditData",
+	"Target": "Data/CraftingRecipes",
+			"Entries": {
+				"{{ModID}}_EquippableTassel": "(O){{ModID}}_NHMelon 3 (O)64 1 (O)428 1 (O)848 4/10 10/{{ModID}}_EquippableTassel 1/false/null/Equippable Magenta Tassel/"
+      }
+    },
+ {
+
+    "LogName": "Create giftable Magenta Tassel recipe",
+    "Action": "EditData",
+	"Target": "Data/CraftingRecipes",
+			"Entries": {
+				"{{ModID}}_GiftableTassel": "(O){{ModID}}_NHMelon 2 (O)64 1 (O)428 1 (O)460 1/10 10/{{ModID}}_GiftableTassel 1/false/null/Giftable Magenta Tassel/"
+      }
+    }
+
+    ]
+}

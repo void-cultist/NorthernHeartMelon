@@ -1,0 +1,366 @@
+{
+    "Changes": [
+         {	
+            "LogName": "Add in the NHM seeds + produce",
+            "Action": "EditData",
+            "Target": "Data/Objects",
+            "Entries": {
+
+    /* ············································· */
+/* : ____  _____ _____ ____  ____     ___      : */
+/* :/ ___|| ____| ____|  _ \/ ___|   ( _ )     : */
+/* :\___ \|  _| |  _| | | | \___ \   / _ \/\   : */
+/* : ___) | |___| |___| |_| |___) | | (_>  <   : */
+/* :|____/|_____|_____|____/|____/  _\___/\/__ : */
+/* :|  _ \|  _ \ / _ \|  _ \| | | |/ ___| ____|: */
+/* :| |_) | |_) | | | | | | | | | | |   |  _|  : */
+/* :|  __/|  _ <| |_| | |_| | |_| | |___| |___ : */
+/* :|_|   |_| \_\\___/|____/ \___/ \____|_____|: */
+/* ············································· */
+
+                // SEED ITEM
+                "{{ModId}}_NHMSeeds": {
+                    "Name": "{{ModId}}_NHMSeeds",
+                    "Displayname": "{{i18n:NHMSeedsName}}",
+                    "Description": "{{i18n:NHMSeedsDescription |NumberOfDays={{NumberOfDays}}}}",
+                    "Type": "Seeds",
+                    "Category": -74,
+                    "Price": 250,
+                    "Texture": "{{ModId}}/objects",
+                    "SpriteIndex": 0,  
+                },
+                // PRODUCED ITEM
+                "{{ModId}}_NHMelon": {
+                    "Name": "{{ModId}}_NHMelon", //internal name
+                    "DisplayName": "{{i18n:NHMelon.DisplayName}}",
+                    "Description": "{{i18n:NHMelon.Description}}",
+                    "Type": "Basic",
+                    "Category": -79,
+                    "Price": "{{Northern Heart Melon Price Token}}",   
+                    "Edibility": 80,
+                    "Texture": "{{ModId}}/objects",
+                    "SpriteIndex": 1,
+                    "ExcludeFromShippingCollection": "{{Shipping}}",
+                    "ContextTags": ["color_pink", "keg_wine", "keg_juice", "preserves_jelly", "category_fruits", "melon_item" ]
+                }
+            }
+        },
+
+         {
+            "LogName": "Add object: Glazed Heart Melon",
+            "Action": "EditData",
+            "Target": "Data/Objects",
+            "Entries": {
+                "{{ModId}}_GlazedHeartMelon": {
+                    "Name": "{{ModId}}_GlazedHeartMelon",
+                    "DisplayName": "{{i18n:GlazedHeartMelon.DisplayName}}",
+                    "Description": "{{i18n:GlazedHeartMelon.Description}}",
+                    "Edibility": "120",
+                    "Type": "Cooking",
+                    "Category": -7,
+                    "ExcludeFromShippingCollection": "{{Shipping}}",
+                    "Price": "{{Glazed Heart Melon Price Token}}",
+                    "Texture": "{{ModId}}\\recipes",
+                    "SpriteIndex": 0,
+                    "ContextTags": [
+                        "color_pink",
+                        "food_sweet",
+                        "candied_fruit_item"
+                    ],
+                    "Buffs": [
+                                {
+                                    "Id": "{{ModId}}_GlazedHMLuckBuff",
+                                    "BuffId": "{{ModID}}_NHMBuff"
+                                }
+                            ] 
+                }
+            }
+        },
+        
+        {
+            "LogName": "Add object: Love Tea",
+            "Action": "EditData",
+            "Target": "Data/Objects",
+            "Entries": {
+                "{{ModId}}_LoveTea": {
+                    "Name": "{{ModId}}_LoveTea",
+                    "DisplayName": "{{i18n:LoveTea.DisplayName}}",
+                    "Description": "{{i18n:LoveTea.Description}}",
+                    "Edibility": "300",
+                    "IsDrink": true,
+                    "Type": "Cooking",
+                    "ExcludeFromShippingCollection": "{{Shipping}}",
+                    "Category": -7,
+                    "Price": "{{Love Tea Price Token}}",
+                    "Texture": "{{ModId}}\\recipes",
+                    "SpriteIndex": 2,
+                    "ContextTags": [
+                        "color_pink",
+                        "food_sweet",
+                        "drink_item"
+                       
+                    ],
+                    "Buffs": [
+                                {
+                                    "Id": "{{ModId}}_GlazedHMLuckBuff",
+                                    "BuffId": "21, {{ModID}}_NHMBuff",
+                                }
+                            ] 
+                }
+            }
+        },
+         {
+            "LogName": "Add object: Heart Melon Huangjiu",
+            "Action": "EditData",
+            "Target": "Data/Objects",
+            "Entries": {
+                "{{ModId}}_HeartMelonHuangjiu": {
+                    "Name": "{{ModId}}_HeartMelonHuangjiu",
+                    "DisplayName": "{{i18n:HeartMelonHuangjiu.DisplayName}}",
+                    "Description": "{{i18n:HeartMelonHuangjiu.Description}}",
+                    "Edibility": "25",
+                    "ExcludeFromShippingCollection": "{{Shipping}}",
+                    "IsDrink": true,
+                    "Type": "Basic",
+                    "Category": -26,
+                    "Price": "{{Heart Melon Huangjiu Price Token}}",
+                    "Texture": "{{ModId}}\\recipes",
+                    "SpriteIndex": 4,
+                    "ContextTags": [
+                        "color_pink",
+                        "drink_item",
+                        "alcohol_item"
+
+                    ]
+                }
+            }
+        },
+          {
+            "LogName": "Add object: Heart Melon Syrup",
+            "Action": "EditData",
+            "Target": "Data/Objects",
+            "Entries": {
+                "{{ModId}}_HeartMelonSyrup": {
+                    "Name": "{{ModId}}_HeartMelonSyrup",
+                    "DisplayName": "{{i18n:HeartMelonSyrup.DisplayName}}",
+                    "Description": "{{i18n:HeartMelonSyrup.Description}}",
+                    "Edibility": "10",
+                    "IsDrink": true,
+                    "ExcludeFromShippingCollection": "{{Shipping}}",
+                    "Type": "Basic",
+                    "Category": -27,
+                    "Price": "{{query: {{Northern Heart Melon Price Token}} + 1000 }}",
+                    "Texture": "{{ModId}}\\recipes",
+                    "SpriteIndex": 8,
+                    "ContextTags": [
+                        "color_pink",
+                        "drink_item",
+                        "syrup_item",
+                        "sugar_item",
+                        "honey_item",
+
+                    ]
+                }
+            }
+        },
+        {
+            "LogName": "Add object: Heart Melon Pastry",
+            "Action": "EditData",
+            "Target": "Data/Objects",
+            "Entries": {
+                "{{ModID}}_HeartMelonPastry": {
+                 
+                        "Name": "{{ModID}}_Heart Melon Pastry",
+                        "DisplayName": "{{i18n:HeartMelonPastry.DisplayName}}",
+                        "Description": "{{i18n:HeartMelonPastry.Description}}",
+                        "Type": "Cooking",
+                        "ExcludeFromShippingCollection": "{{Shipping}}",
+                        "Category": -7,
+                        "Price": "{{Round: {{query: {{Northern Heart Melon Price Token}} * 1.2 }} }}", 
+                        "Texture": "{{ModID}}\\recipes", 
+                        "SpriteIndex": 5, 
+                        "Edibility": 55,
+                        "IsDrink": false,
+                        "ContextTags": [ "color_pink", "food_sweet", "food_bakery", "pastry_item" ],
+                           "Buffs": [
+                                {
+                                    "Id": "{{ModID}}_PastryBuff",
+                                    "Duration": 1000,
+                                    "CustomAttributes": {
+                                            "LuckLevel": 2.0,
+                                            "MiningLevel": 2.0,
+                                            "Defense": 2
+                                        },
+                                    "IsDebuff": false,
+                                }
+                           ]
+                        }
+                       
+                
+            }
+        },
+
+        {
+            "LogName": "Add object: Heart Melon Donut",
+            "Action": "EditData",
+            "Target": "Data/Objects",
+            "Entries": {
+              "{{ModID}}_HeartMelonDonut":
+                {
+                   "Name": "{{ModID}}_HeartMelonDonut",
+                     "DisplayName": "{{i18n:HeartMelonDonut.DisplayName}}",
+                    "Description": "{{i18n:HeartMelonDonut.Description}}",
+                  "Type": "Cooking",
+                    "Category": -7,
+                    "ExcludeFromShippingCollection": "{{Shipping}}",
+                    "Price": "{{Round: {{query:  {{Northern Heart Melon Price Token}} * 1.5 }} }}", 
+                   "Texture": "{{ModID}}\\recipes", 
+                    "SpriteIndex": 6, 
+                   "Edibility": 65,
+                    "IsDrink": false,
+                    "ContextTags": [ "color_pink", "food_sweet", "food_bakery", "pastry_item"],
+                   "Buffs": [
+                        {
+                            "Id": "{{ModID}}_DonutBuff",
+                            "Duration": 1200,
+                            "CustomAttributes": {
+                                "CombatLevel": 3.0,
+                                "LuckLevel": 1.0,
+                                "Speed": 2.0
+      
+                                },
+                            "IsDebuff": false,
+                        }
+                   ]
+                },
+            }
+               
+        },
+             {
+            "LogName": "Add object: Heart Melon Candy",
+            "Action": "EditData",
+            "Target": "Data/Objects",
+            "Entries": {
+              "{{ModID}}_HeartMelonCandy":
+                {
+                   "Name": "{{ModID}}_HeartMelonCandy",
+                    "DisplayName": "{{i18n:HeartMelonCandy.DisplayName}}",
+                    "Description": "{{i18n:HeartMelonCandy.Description}}",
+                  "Type": "Cooking",
+                  "ExcludeFromShippingCollection": "{{Shipping}}",
+                    "Category": -7,
+                    "Price": "{{Round: {{query:  {{Northern Heart Melon Price Token}} * 1.1 }} }}", 
+                   "Texture": "{{ModID}}\\recipes", 
+                    "SpriteIndex": 7, 
+                   "Edibility": 20,
+                    "IsDrink": false,
+                    "ContextTags": [ "color_pink", "food_sweet", "candy_item"],
+                   "Buffs": [
+                        {
+                            "Id": "{{ModID}}_CandyBuff",
+                            "Duration": 2400,
+                            "CustomAttributes": {
+                                "LuckLevel": 5.0,
+                                "FishingLevel": 5.0
+                                },
+                            "IsDebuff": false
+                        }
+                   ]
+                }
+            }
+               
+        },
+            {
+            "LogName": "Add object: Old recipe",
+            "Action": "EditData",
+            "Target": "Data/Objects",
+            "Entries": {
+              "{{ModID}}_OldRecipe":
+                {
+                   "Name": "{{ModID}}_OldRecipe",
+                    "DisplayName": "Old Recipe",
+                    "ExcludeFromShippingCollection": true,
+                    "Description": "How did this get here...?",
+                  "Type": "Basic",
+                    "Category": -20,
+                    "Price": 1, 
+                   "Texture": "{{ModID}}\\objects", 
+                    "SpriteIndex": 2, 
+                   "Edibility": -300,
+                    "IsDrink": false,
+                    "ContextTags": [ "not_giftable", "prevent_loss_on_death" ]
+                  
+                }
+            }
+               
+        },
+        {
+    "LogName": "Old Recipe- Vanilla Asset Extentions SpaceCore patch",
+    "Action": "EditData",
+    "Target": "spacechase0.SpaceCore/ObjectExtensionData",
+    "Entries": {
+        "{{ModID}}_OldRecipe": {
+            "CanBeTrashed": true,
+            "CanBeShipped": false,
+            "UseForTriggerAction": true,
+            "ConsumeForTriggerAction": true
+        }
+    }
+},
+
+/* ············································ */
+/* : _____  _    ____ ____  _____ _     ____  : */
+/* :|_   _|/ \  / ___/ ___|| ____| |   / ___| : */
+/* :  | | / _ \ \___ \___ \|  _| | |   \___ \ : */
+/* :  | |/ ___ \ ___) |__) | |___| |___ ___) |: */
+/* :  |_/_/   \_\____/____/|_____|_____|____/ : */
+/* ············································ */
+
+   {
+            "LogName": "Add equippable Magenta Tassel",
+            "Action": "EditData",
+            "Target": "Data/Objects",
+            "Entries": {
+                "{{ModId}}_EquippableTassel": {
+                    "Name": "{{ModId}}_EquippableTassel",
+                    "DisplayName": "{{i18n:Tassel.DisplayName}}",
+                    "Description": "{{i18n:Tassel.Description}}",
+                    "Type": "Ring",
+                    "Category": "-96",
+                    "Price": "2500",
+                    "Texture": "{{ModId}}\\recipes",
+                    "SpriteIndex": 3,
+                    "ContextTags": [
+                        "color_red"
+                         ],
+                    "ExcludeFromShippingCollection": true,
+                
+                }
+            }
+        },
+                {
+            "LogName": "Add giftable Magenta Tassel",
+            "Action": "EditData",
+            "Target": "Data/Objects",
+            "Entries": {
+                "{{ModId}}_GiftableTassel": {
+                    "Name": "{{ModId}}_GiftableTassel",
+                    "DisplayName": "{{i18n:GiftableTassel.DisplayName}}",
+                    "Description": "{{i18n:GiftableTassel.Description}}",
+                    "Type": "Basic",
+                    "Category": "-2",
+                    "Price": "2500",
+                    "Texture": "{{ModId}}\\recipes",
+                    "SpriteIndex": 1,
+                    "ContextTags": [
+                        "color_red", /* "propose_roommate_void.peiming_peiming" */
+                         ],
+                    "ExcludeFromShippingCollection": true,
+                
+                }
+            }
+        },
+
+
+    ]
+}

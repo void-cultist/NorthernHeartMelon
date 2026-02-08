@@ -1,10 +1,11 @@
 {
-  "Northern Heart Melon Price": "2500",
+  "Northern Heart Melon Price": "5000",
   "Glazed Heart Melon Price": "7000",
   "Love Tea Price": "10000",
   "Heart Melon Huangjiu Price": "12000",
   "Giftable Tassel Price": "250000",
   "Equippable Tassel Price": "500000",
   "Recipe Overrides": "true",
-  "Growth Time": "short"
+  "Growth Time": "short",
+  "Exclude from Shipping Collection": "false"
 }
