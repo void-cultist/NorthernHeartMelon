@@ -1,6 +1,6 @@
 {
     "NHMSeedsName": "Northern Heart Melon seeds",
-    "NHMSeedsDescription": "Plant these in Winter to grow a Northern Heart Melon. Needs {{NumberOfDays}} days to grow.", //do not translate "{{NumberOfDays}}" - keep it like that when translating
+    "NHMSeedsDescription": "Plant these in Winter to grow a Northern Heart Melon. Needs {{NumberOfDays}} days to grow.", // do not translate "{{NumberOfDays}}" - keep it like that when translating
     "NHMelon.Description": "A very rare fruit from a deity's garden that is said to increase a person's fondness towards another.",
     "NHMelon.DisplayName": "Northern Heart Melon",
     "GlazedHeartMelon.DisplayName": "Glazed Heart Melon",
@@ -19,7 +19,7 @@
     "HuangjiuMail.title": "How to make Huangjiu",
     "HuangjiuMail.text": "Hello, Farmer @! We of the Huangjiu Brewers' Association have been informed of your tremendous farming efforts and progress. As such, we would like to impart our knowledge on how to make Northern Heart Melon Huangjiu on you. Place a Northern Heart Melon in a keg in addition to 2 bags of unmilled rice. Why don't you give it a try?",
     
-    ///New in 1.0.2
+    ///New in 1.1.0
     "sugarItem": "Sugar Item",
     "teaItem": "Tea Item",
     "flourItem": "Flour Item",
@@ -36,6 +36,17 @@
 
     "HeartMelonSyrup.DisplayName": "Heart Melon Syrup",
     "HeartMelonSyrup.Description": "A very sweet syrup made from extracting the juice of the Northern Heart Melon and letting it stir for a while. Can be used as a replacement for sugar.",
+
+    "GusQuestMail.title": "Syrup needed",
+    "GusQuestMail.text": "Hello @! I heard that you managed to cultivate a Northern Heart Melon. There are some pastries I would like to offer in my saloon, so could you be a dear and bring me four bottles of Heart Melon Syrup? ^ Gus",
+
+    "GusQuestCompleteMail.title": "Syrupy thanks",
+    "GusQuestCompleteMail.text": "Hello @! ^ Thank you for the bottles of syrup. Attached you will find the recipe I needed them for. I will also be selling some treats made from Heart Melons at my saloon from now on! Stop by anytime! ^ Gus",
+
+    "GusSyrup.title": "Heart Melon Syrup wanted!",
+    "GusSyrup.text": "Gus needs Heart Melon Syrup for a pastry he wants to make.",
+    "GusSyrup.objective": "Bring Gus 4 bottles of Heart melon Syrup.",
+    "GusSyrup.reaction": "Oh! Would you look at that! It's the syrup I asked for. Thank you, @.",
 
 //configs
 "config.Northern Heart Melon Price.name": "Northern Heart Melon Price",
@@ -56,9 +67,9 @@
 "config.Equippable Tassel Price.name": "Equippable Tassel Price",
 "config.Equippable Tassel Price.description": "Adjust the cost of the Equippable Tassel recipe at the Volcano Shop",
 
-//new configs in 1.0.2
+//new configs in 1.1.0
 "config.Recipe Overrides.name": "Recipe Overrides",
-"config.Recipe Overrides.description": "Change the recipes in the mod to use food categories as ingredients rather than a fixed type of item.",
+"config.Recipe Overrides.description": "Change the recipes in the mod to use food categories as ingredients rather than a fixed type of item. Enables compatibility with other mods such as Cornucopia.",
 
 "config.Growth Time.name": "Growth Time",
 "config.Growth Time.description": "Change the time it takes for the Northern Heart Melon plant to grow.",
