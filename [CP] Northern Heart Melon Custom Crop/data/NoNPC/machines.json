@@ -9,6 +9,7 @@
 				"(BC)12",
 				"OutputRules"
 			],
+
 			"Entries": {
 				"{{ModId}}_HeartMelonHuangjiu": {
 					"Id": "{{ModId}}_HeartMelonHuangjiu",
@@ -16,10 +17,9 @@
 						{
 							"RequiredItemId": "(O){{ModID}}_NHMelon",
 							"RequiredCount": 1,
-                            "Condition": "PLAYER_HAS_MAIL Current {{ModID}}_HuangjiuMail Received, PLAYER_HAS_ITEM Current (O)271 2"
+                            "Condition": "PLAYER_HAS_MAIL Current {{ModID}}_HuangjiuMail Received"
 						}
-                        	
-					],
+                    ],
 					"OutputItem": [
 						{
 							"ItemId": "(O){{ModID}}_HeartMelonHuangjiu",
@@ -32,15 +32,18 @@
 									"Modification": "Multiply",
 									"Amount": 7
 								},
-							]
+							],
+							"CustomData": {
+								"selph.ExtraMachineConfig.RequirementId.1": "(O)271",
+								"selph.ExtraMachineConfig.RequirementCount.1": 2,
+								"selph.ExtraMachineConfig.RequirementInvalidMsg": "For Huangjiu: 1 Northern Heart Melon + 2 Unmilled Rice"
+							}
 						}
 					],
+					
 					"DaysUntilReady": 3,
-					"AdditionalConsumedItems":
-                    {
-							"RequiredItemId": "(O)271",
-							"RequiredCount": 2
-						}
+					
+				
 				}
 			},
 			"MoveEntries": [
@@ -83,15 +86,15 @@
 									"Modification": "Multiply",
 									"Amount": 2
 								}
-							]
+							],
+							"CustomData": {
+								"selph.ExtraMachineConfig.RequirementId.1": "(O)245",
+								"selph.ExtraMachineConfig.RequirementCount.1": 2,
+								"selph.ExtraMachineConfig.RequirementInvalidMsg": "For Heart Melon Syrup: 2 Northern Heart Melon + 1 Sugar"
+							}
 						}
 					],
 					"MinutesUntilReady": 6000,
-					"AdditionalConsumedItems":
-                    {
-							"RequiredItemId": "(O)245",
-							"RequiredCount": 1
-						}
 					
 					
 				}

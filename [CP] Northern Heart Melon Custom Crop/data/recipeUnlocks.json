@@ -6,8 +6,8 @@
         "Target": "Data/Quests",
         "Entries": 
         {
-        "{{ModID}}_GusSyrup": "ItemDelivery/Heart Melon Syrup wanted!/Gus needs Heart Melon Syrup for a pastry he wants to make./Bring Gus 4 bottles of Heart melon Syrup./Gus (O){{ModID}}_HeartMelonSyrup 4/0/5000/-1/true/Oh! Would you look at that! It's the syrup I asked for. Thank you, @.",
-        },
+        "{{ModID}}_GusSyrup": "ItemDelivery/{{i18n:GusSyrup.title}}/{{i18n:GusSyrup.text}}/{{i18n:GusSyrup.objective}}/Gus (O){{ModID}}_HeartMelonSyrup 4/0/5000/-1/true/{{i18n:GusSyrup.reaction}}"
+        }
     },
 
     { 
@@ -43,74 +43,23 @@
     "Action": "EditData",
     "Target": "data/mail",
     "Entries": {
-        "{{ModID}}_GusQuestMail": "Hello @! I heard that you managed to cultivate a Northern Heart Melon. There are some pastries I would like to offer in my saloon, so could you be a dear and bring me four bottles of Heart Melon Syrup? ^ Gus%item quest {{ModID}}_GusSyrup true %%[#]Syrup needed",
+       "{{ModID}}_GusQuestMail": "{{i18n:GusQuestMail.text}}%item quest {{ModID}}_GusSyrup true %%[#]{{i18n:GusQuestMail.title}}",
    
-        "{{ModID}}_GusQuestCompleteMail": "Hello @! ^ Thank you for the bottles of syrup. Attached you will find the recipe I needed them for. I will also be selling some treats made from Heart Melons at my saloon from now on! Stop by anytime! ^ Gus%item cookingRecipe {{ModID}}_HeartMelonPastry%%[#]Syrupy thanks"
+        "{{ModID}}_GusQuestCompleteMail": "{{i18n:GusQuestCompleteMail.text}}%item cookingRecipe {{ModID}}_HeartMelonPastry%%[#]{{i18n:GusQuestCompleteMail.title}}"
+
     }
 },
 
 
 //////Spawn old recipe
- {          "LogName": "Spawn heart melon candy recipe",
-            "Action": "EditData",
-            "Target": "spacechase0.SpaceCore/SpawnableDefinitions",
-            "Entries": {
-                "{{ModID}}_SpawnHeartMelonCandyRecipe": {
-                    "Type": "Forageable",
-                    "Condition": "TRUE", // GSQ
-                    "ForageableItemData": [
-                        {
-                            "Weight": 1.0,
-                            "Value": {
-                                "ItemId": "(O){{ModID}}_OldRecipe",
-                            }
-                        }
-                    ],
-                    "ForageableExperienceGranted": 0,
-                },
-            }
- },
-
-  {
-        "LogName": "Recipe spawn group",
-            "Action": "EditData",
-            "Target": "spacechase0.SpaceCore/SpawningGroups",
-            "Entries": {
-                "{{ModID}}_HMCandyRecipeSpawnGroup": {
-                    "SpawnablesToSpawn": [
-                        {
-                            "SpawnableIds": [
-                                {
-                                    "Weight": 1.0,
-                                    "Value": "{{ModID}}_SpawnHeartMelonCandyRecipe"
-                                }
-                            ],
-                            "Minimum": 1,
-                            "Maximum": 1,
-                        },
-                    ]
-                    }
-            }
-  },
-
-  { 
-			"LogName": "Recipe spawnable Trigger Actions",
-            "Action": "EditData",
-            "Target": "Data/TriggerActions",
-            "Entries": 
-			{  
-		"{{ModID}}_Trigger_Spawnables_HeartMelonCandyRecipe": //No spawning????
-				{
-					"ID": "{{ModID}}}_Trigger_Spawnables_HeartMelonCandyRecipe",
-					"Trigger": "DayStarted",
-					"Condition": "IS_GREEN_RAIN_DAY true, PLAYER_HAS_COOKING_RECIPE Any {{ModID}}_HeartMelonDonut",
-					"MarkActionApplied": false,
-					"Actions": [
-						"spacechase0.SpaceCore_TriggerSpawnGroup {{ModID}}_HMCandyRecipeSpawnGroup Railroad 25,26,1,1"
-					]
-				}
-            }
-        },
+/*  {
+    "LogName": "Receive Old recipe",
+    "Action": "EditData",
+    "Target": "Data/Events/Woods",
+    "Entries": {
+        "{{ModID}}_RecipeEvent/Weather GreenRain/Year 2": "continue/27 8"
+    }
+ }  */       
           { 
 			"LogName": "Trigger action: Learn recipe upon item use",
             "Action": "EditData",

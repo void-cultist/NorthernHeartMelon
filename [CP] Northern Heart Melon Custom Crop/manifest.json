@@ -11,6 +11,11 @@
 "Dependencies": [
     {"UniqueID": "spacechase0.SpaceCore",
   "IsRequired": true },
+
+  {
+    "UniqueID": "selph.ExtraMachineConfig",
+    "IsRequired": true
+  }
 ]
   
 }

@@ -1,34 +1,83 @@
 {
     //big thanks to Maatsuki for the translation! https://www.nexusmods.com/profile/Maatsuki
-  "NHMSeedsName": "Sementes de Melão Coração do Norte",
-  "NHMSeedsDescription": "Plante-as no Inverno para cultivar um Melão Coração do Norte. Leva 20 dias para crescer.",
-  "NHMelon.DisplayName": "Melão Coração do Norte",
-  "NHMelon.Description": "Uma fruta extremamente rara, vinda do jardim de uma divindade, que dizem aumentar o afeto de uma pessoa por outra.",
-  "GlazedHeartMelon.DisplayName": "Melão Coração Glaceado",
-  "GlazedHeartMelon.Description": "Um doce delicioso. Presentear alguém com isso mostra que você realmente gosta dessa pessoa!",
-  "LoveTea.DisplayName": "Chá do Amor",
-  "LoveTea.Description": "Uma bebida misteriosa que dizem fazer qualquer um gostar de você instantaneamente.",
-  "Tassel.DisplayName": "Pingente",
-  "Tassel.Description": "Um acessório equipável (slot de Anel). Aumenta a sorte, a defesa e os atributos críticos.",
-  "GiftableTassel.DisplayName": "Pingente Magenta",
-  "GiftableTassel.Description": "Um belo acessório feito à mão, símbolo de companheirismo. Talvez uma certa divindade antiga aprecie isso?",
-  "GiftedToNotOnAllowListMessage": "Desculpe, isso não é bem do meu agrado. Que tal você mesmo fazer o uso disso?",
-  "HeartMelonBuff": "Bônus do Melão Coração",
-  "MagentaTasselBuff": "Bônus do Pingente Magenta",
-  "HeartMelonHuangjiu.DisplayName": "Huangjiu de Melão Coração",
-  "HeartMelonHuangjiu.Description": "Um tipo de bebida alcoólica tradicional feita a partir da fermentação de grãos cozidos, como arroz, arroz glutinoso ou painço. Essa versão especial leva Melão Coração do Norte, lhe dando um sabor único.",
-  "HuangjiuMail.title": "Como preparar Huangjiu",
-  "HuangjiuMail.text": "Olá, ${fazendeiro^fazendeira^pessoa da fazenda}$ @! Nós, da Associação dos Mestres Cervejeiros de Huangjiu, ficamos sabendo de seus impressionantes esforços e progressos na agricultura. Por isso, gostaríamos de compartilhar nosso conhecimento sobre como preparar o Huangjiu de Melão Coração do Norte. Coloque um Melão Coração do Norte em um barril, junto com 2 sacos de arroz. Que tal tentar?",
-  "config.Northern Heart Melon Price.name": "Preço do Melão Coração do Norte",
-  "config.Northern Heart Melon Price.description": "Ajusta o preço do Melão Coração do Norte (cultivo).",
-  "config.Glazed Heart Melon Price.name": "Preço do Melão Coração Glaceado",
-  "config.Glazed Heart Melon Price.description": "Ajusta o preço do prato Melão Coração Glaceado.",
-  "config.Love Tea Price.name": "Preço do Chá do Amor",
-  "config.Love Tea Price.description": "Ajusta o preço do Chá do Amor (receita culinária).",
-  "config.Heart Melon Huangjiu Price.name": "Preço do Huangjiu de Melão Coração",
-  "config.Heart Melon Huangjiu Price.description": "Ajusta o preço do Huangjiu de Melão Coração (produto artesanal).",
-  "config.Giftable Tassel Price.name": "Preço do Pingente para Presente",
-  "config.Giftable Tassel Price.description": "Ajusta o custo da receita do Pingente para Presente na Loja do Vulcão. O Pingente para Presente só estará disponível com o 'NPC Pei Ming' instalado.",
-  "config.Equippable Tassel Price.name": "Preço do Pingente Equipável",
-  "config.Equippable Tassel Price.description": "Ajusta o custo da receita do Pingente Equipável na Loja do Vulcão."
+  
+    "NHMSeedsName": "Sementes de Melão Coração do Norte",
+    "NHMSeedsDescription": "Plante-as no Inverno para cultivar um Melão Coração do Norte. Leva {{NumberOfDays}} dias para crescer.",
+    "NHMelon.DisplayName": "Melão Coração do Norte",
+    "NHMelon.Description": "Uma fruta extremamente rara, vinda do jardim de uma divindade, que dizem aumentar o afeto de uma pessoa por outra.",
+    "GlazedHeartMelon.DisplayName": "Melão Coração Glaceado",
+    "GlazedHeartMelon.Description": "Um doce delicioso. Presentear alguém com isso mostra que você realmente gosta dessa pessoa!",
+    "LoveTea.DisplayName": "Chá do Amor",
+    "LoveTea.Description": "Uma bebida misteriosa que dizem fazer qualquer um gostar de você instantaneamente.",
+    "Tassel.DisplayName": "Pingente",
+    "Tassel.Description": "Um acessório equipável (slot de Anel). Aumenta a sorte, a defesa e os atributos críticos.",
+    "GiftableTassel.DisplayName": "Pingente Magenta",
+    "GiftableTassel.Description": "Um belo acessório feito à mão, símbolo de companheirismo. Talvez uma certa divindade antiga aprecie isso?",
+    "GiftedToNotOnAllowListMessage": "Desculpe, isso não é bem do meu agrado. Que tal você mesmo fazer o uso disso?",
+    "HeartMelonBuff": "Bônus do Melão Coração",
+    "MagentaTasselBuff": "Bônus do Pingente Magenta",
+    "HeartMelonHuangjiu.DisplayName": "Huangjiu de Melão Coração",
+    "HeartMelonHuangjiu.Description": "Um tipo de bebida alcoólica tradicional feita a partir da fermentação de grãos cozidos, como arroz, arroz glutinoso ou painço. Essa versão especial leva Melão Coração do Norte, lhe dando um sabor único.",
+    "HuangjiuMail.title": "Como preparar Huangjiu",
+    "HuangjiuMail.text": "Olá, ${fazendeiro^fazendeira^pessoa da fazenda}$ @! Nós, da Associação dos Mestres Cervejeiros de Huangjiu, ficamos sabendo de seus impressionantes esforços e progressos na agricultura. Por isso, gostaríamos de compartilhar nosso conhecimento sobre como preparar o Huangjiu de Melão Coração do Norte. Coloque um Melão Coração do Norte em um barril, junto com 2 sacos de arroz. Que tal tentar?",
+    
+    ///New in 1.1.0
+    "sugarItem": "Item de Açúcar",
+    "teaItem": "Item de Chá",
+    "flourItem": "Item de Farinha",
+    "honeyItem": "Item de Mel",
+
+    "HeartMelonPastry.DisplayName": "Doce de Melão Coração",
+    "HeartMelonPastry.Description": "Um doce açucarado com um recheio gelatinoso feito de Melões Coração do Norte no centro.",
+
+    "HeartMelonDonut.DisplayName": "Rosquinha de Melão Coração",
+    "HeartMelonDonut.Description": "Uma releitura do amado doce clássico, usando o exclusivo Melão Coração do Norte para realçar os sabores mais doces.",
+
+    "HeartMelonCandy.DisplayName": "Bala de Melão Coração",
+    "HeartMelonCandy.Description": "Não é muito nutritiva, mas é muuuuito viciante!",
+
+    "HeartMelonSyrup.DisplayName": "Xarope de Melão Coração",
+    "HeartMelonSyrup.Description": "Um xarope muito doce feito a partir da extração do suco do Melão Coração do Norte e deixado em repouso por um tempo. Pode ser usado como substituto do açúcar.",
+
+    "GusQuestMail.title": "Xarope necessário",
+    "GusQuestMail.text": "Olá, @! Fiquei sabendo que você conseguiu cultivar um Melão Coração do Norte. Há alguns doces que eu gostaria de oferecer no meu saloon, então poderia me trazer quatro garrafas de Xarope de Melão Coração? ^ Gus",
+
+    "GusQuestCompleteMail.title": "Agradecimentos açucarados",
+    "GusQuestCompleteMail.text": "Olá, @! ^ Obrigado pelas garrafas de xarope. Em anexo você encontrará a receita para a qual eu precisava delas. A partir de agora, também estarei vendendo alguns doces feitos com Melões Coração no meu saloon! Passe lá quando quiser! ^ Gus",
+
+    "GusSyrup.title": "Procura-se Xarope de Melão Coração!",
+    "GusSyrup.text": "Gus precisa de Xarope de Melão Coração para um doce que ele quer preparar.",
+    "GusSyrup.objective": "Leve 4 garrafas de Xarope de Melão Coração para o Gus.",
+    "GusSyrup.reaction": "Oh! Mas veja só isso! É o xarope que eu pedi. Obrigado, @.",
+
+//configs
+"config.Northern Heart Melon Price.name": "Preço do Melão Coração do Norte",
+"config.Northern Heart Melon Price.description": "Ajusta o preço do Melão Coração do Norte (cultivo).",
+
+"config.Glazed Heart Melon Price.name": "Preço do Melão Coração Glaceado",
+"config.Glazed Heart Melon Price.description": "Ajusta o preço do prato Melão Coração Glaceado.",
+
+"config.Love Tea Price.name": "Preço do Chá do Amor",
+"config.Love Tea Price.description": "Ajusta o preço do Chá do Amor (receita culinária).",
+
+"config.Heart Melon Huangjiu Price.name": "Preço do Huangjiu de Melão Coração",
+"config.Heart Melon Huangjiu Price.description": "Ajusta o preço do Huangjiu de Melão Coração (produto artesanal).",
+
+"config.Giftable Tassel Price.name": "Preço do Pingente para Presente",
+"config.Giftable Tassel Price.description": "Ajusta o custo da receita do Pingente para Presente na Loja do Vulcão. O Pingente para Presente só estará disponível com o 'NPC Pei Ming' instalado.",
+
+"config.Equippable Tassel Price.name": "Preço do Pingente Equipável",
+"config.Equippable Tassel Price.description": "Ajusta o custo da receita do Pingente Equipável na Loja do Vulcão.",
+
+//new configs in 1.1.0
+"config.Recipe Overrides.name": "Substituição de Receitas",
+"config.Recipe Overrides.description": "Altera as receitas do mod para usar categorias de alimentos como ingredientes, em vez de um tipo fixo de item. Ativa compatibilidade com outros mods, como o Cornucopia.",
+
+"config.Growth Time.name": "Tempo de Crescimento",
+"config.Growth Time.description": "Altera o tempo necessário para a planta Melão Coração do Norte crescer.",
+"config.Growth Time.values.short": "curto",
+"config.Growth Time.values.standard": "padrão",
+"config.Growth Time.values.long": "longo",
+
+
 }

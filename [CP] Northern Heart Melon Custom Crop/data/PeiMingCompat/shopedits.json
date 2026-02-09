@@ -140,8 +140,8 @@
                 },
             "MoveEntries": [
                     {
-                    "ID": "{{ModId}}_HeartMelonPastry",
-                    "ToPosition": "Bottom"
+                    "ID": "{{ModId}}_HeartMelonCandy",
+                    "ToPosition": "Top"
                     } 
                 ]
 

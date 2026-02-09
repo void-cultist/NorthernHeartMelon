@@ -32,15 +32,16 @@
 									"Modification": "Multiply",
 									"Amount": 7
 								},
-							]
+							],
+							"CustomData": {
+								"selph.ExtraMachineConfig.RequirementId.1": "(O)271",
+								"selph.ExtraMachineConfig.RequirementCount.1": 2,
+								"selph.ExtraMachineConfig.RequirementInvalidMsg": "For Huangjiu: 1 Northern Heart Melon + 2 Unmilled Rice"
+							}
 						}
 					],
 					"DaysUntilReady": 3,
-					"AdditionalConsumedItems":
-                    {
-							"RequiredItemId": "(O)271",
-							"RequiredCount": 2,
-						},
+	
 				}
 			},
 			"MoveEntries": [
@@ -48,6 +49,59 @@
                     "BeforeId": "Default_Juice",
                     "Id": "{{ModId}}_HeartMelonHuangjiu",
 
+				}
+			]
+		},
+
+		{
+            "LogName": "Add machine Output: Heart Melon Syrup - without Pei Ming installed",
+			"Action": "EditData",
+			"Target": "Data/Machines",
+			"TargetField": [
+				"(BC)15",
+				"OutputRules"
+			],
+			"Entries": {
+				"{{ModId}}_HeartMelonSyrup": {
+					"Id": "{{ModId}}_HeartMelonSyrup",
+					"Triggers": [
+						{
+							"RequiredItemId": "(O){{ModID}}_NHMelon",
+							"RequiredCount": 2,
+                          
+						},
+                        	
+					],
+					"OutputItem": [
+						{
+							"ItemId": "(O){{ModID}}_HeartMelonSyrup",
+							"ObjectInternalName": "{0} HeartMelonSyrup",
+							"ObjectDisplayName": "{{i18n:HeartMelonSyrup.DisplayName}}",
+							"PreserveId": "",
+							"CopyPrice": true,
+							"PriceModifiers": [
+								{
+									"Modification": "Multiply",
+									"Amount": 2
+								}
+							],
+								"CustomData": {
+								"selph.ExtraMachineConfig.RequirementId.1": "(O)245",
+								"selph.ExtraMachineConfig.RequirementCount.1": 2,
+								"selph.ExtraMachineConfig.RequirementInvalidMsg": "For Heart Melon Syrup: 2 Northern Heart Melon + 1 Sugar"
+							}
+						}
+					],
+					"MinutesUntilReady": 6000
+                    
+					
+					
+				}
+			},
+			"MoveEntries": [
+				{
+					"Id": "{{ModId}}_HeartMelonSyrup",
+					"BeforeId": "Default_Pickled"
 				}
 			]
 		}
