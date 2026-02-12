@@ -93,4 +93,4 @@ Requires 2 Northern Heart Melon + 2 Sugar
 ## Heart Melon Candy
 | How to obtain? |Price | 
 | ------------- | ------------- |
-|  |  |
+| When entering the Secret Woods, there's a small chance an event to obtain the recipe plays. Alternatively, this event plays during a Green Rain Day. |  |
