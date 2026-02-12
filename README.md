@@ -10,6 +10,7 @@ This mod adds the new custom crop **Northern Heart Melon**. It is a mod that was
 * [Giftable Tassel (Exclusive to NPC Pei Ming mod)](#giftable-tassel)
 * [Equippable Tassel](#equippable-tassel)
 * [Heart Melon Huangjiu](#heart-melon-huangjiu)
+* 
 
 The following sections will talk about the items in detail as well as their unlock conditions for players __without__ the NPC Pei Ming installed. For players with NPC Pei Ming installed, please refer to [this readme](github.com/void-cultist/PeiMingSDV).
 
@@ -69,4 +70,27 @@ This tassel provides several buffs and can be equipped in the ring slot.
 
 | How to obtain? |Price | 
 | ------------- | ------------- |
-| After having played for 128 days, you will receive a letter that will unlock the ability to make Heart Melon Huangjiu in kegs. |  n.a. |
+| After ~~having played for 128 days~~ (before 1.1.0) having earned 1,000,000 gold (as of 1.1.0), you will receive a letter that will unlock the ability to make Heart Melon Huangjiu in kegs. |  n.a. |
+Requires 1 Northern Heart Melon + 2 Unmilled Rice
+
+## Heart Melon Syrup
+| How to obtain? |Price | 
+| ------------- | ------------- |
+| n.a | 2 x base price |
+Requires 2 Northern Heart Melon + 2 Sugar
+
+## Heart Melon Pastry
+| How to obtain? |Price | 
+| ------------- | ------------- |
+| You'll receive a quest from Gus after shipping 1 Northern Heart Melon and having at least 5 Hearts with him. Completing this quests unlocks the Heart Melon Pastry recipe. | 1.2 x Northern Heart Melon base price |
+
+
+## Heart Melon Donut
+| How to obtain? |Price | 
+| ------------- | ------------- |
+| After having completed Gus' quest and having received his letter with the Pastry recipe, the Heart Melon Donut recipe can be purchased in the Saloon. | 1.5 x Northern Heart Melon base price |
+
+## Heart Melon Candy
+| How to obtain? |Price | 
+| ------------- | ------------- |
+|  |  |
